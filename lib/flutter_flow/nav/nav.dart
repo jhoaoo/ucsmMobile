@@ -83,13 +83,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? HomePagWidget() : HomePageWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : HomePageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? HomePagWidget() : HomePageWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : HomePageWidget(),
         ),
         FFRoute(
           name: HomePageWidget.routeName,
@@ -97,10 +97,50 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => HomePageWidget(),
         ),
         FFRoute(
-          name: HomePagWidget.routeName,
-          path: HomePagWidget.routePath,
-          builder: (context, params) => HomePagWidget(),
-        )
+            name: HomePagWidget.routeName,
+            path: HomePagWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'home_pag')
+                : NavBarPage(
+                    initialPage: 'home_pag',
+                    page: HomePagWidget(),
+                  )),
+        FFRoute(
+            name: MaterialesWidget.routeName,
+            path: MaterialesWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'materiales')
+                : NavBarPage(
+                    initialPage: 'materiales',
+                    page: MaterialesWidget(),
+                  )),
+        FFRoute(
+            name: EventosWidget.routeName,
+            path: EventosWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'eventos')
+                : NavBarPage(
+                    initialPage: 'eventos',
+                    page: EventosWidget(),
+                  )),
+        FFRoute(
+            name: ReclamosWidget.routeName,
+            path: ReclamosWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'reclamos')
+                : NavBarPage(
+                    initialPage: 'reclamos',
+                    page: ReclamosWidget(),
+                  )),
+        FFRoute(
+            name: PerfilWidget.routeName,
+            path: PerfilWidget.routePath,
+            builder: (context, params) => params.isEmpty
+                ? NavBarPage(initialPage: 'perfil')
+                : NavBarPage(
+                    initialPage: 'perfil',
+                    page: PerfilWidget(),
+                  ))
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 
