@@ -125,7 +125,7 @@ class _HomePagWidgetState extends State<HomePagWidget> {
                         hoverColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         onTap: () async {
-                          context.pushNamed(PerfilWidget.routeName);
+                          context.pushNamed(ProfileWidget.routeName);
                         },
                         child: Icon(
                           Icons.person,

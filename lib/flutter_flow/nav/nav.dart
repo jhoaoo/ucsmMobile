@@ -133,14 +133,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     page: ReclamosWidget(),
                   )),
         FFRoute(
-            name: PerfilWidget.routeName,
-            path: PerfilWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'perfil')
-                : NavBarPage(
-                    initialPage: 'perfil',
-                    page: PerfilWidget(),
-                  ))
+          name: AutUcsmWidget.routeName,
+          path: AutUcsmWidget.routePath,
+          builder: (context, params) => AutUcsmWidget(),
+        ),
+        FFRoute(
+          name: ProfileWidget.routeName,
+          path: ProfileWidget.routePath,
+          builder: (context, params) => ProfileWidget(),
+        ),
+        FFRoute(
+          name: ProfileEditWidget.routeName,
+          path: ProfileEditWidget.routePath,
+          builder: (context, params) => ProfileEditWidget(),
+        ),
+        FFRoute(
+          name: CreateEventWidget.routeName,
+          path: CreateEventWidget.routePath,
+          builder: (context, params) => CreateEventWidget(),
+        )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
 

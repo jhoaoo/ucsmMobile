@@ -156,7 +156,6 @@ class _NavBarPageState extends State<NavBarPage> {
       'materiales': MaterialesWidget(),
       'eventos': EventosWidget(),
       'reclamos': ReclamosWidget(),
-      'perfil': PerfilWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -203,14 +202,6 @@ class _NavBarPageState extends State<NavBarPage> {
           BottomNavigationBarItem(
             icon: FaIcon(
               FontAwesomeIcons.mailBulk,
-              size: 24.0,
-            ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person_sharp,
               size: 24.0,
             ),
             label: 'Home',
