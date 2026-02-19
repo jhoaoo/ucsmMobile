@@ -72,7 +72,7 @@ class _HomePagWidgetState extends State<HomePagWidget> {
                         text: TextSpan(
                           children: [
                             TextSpan(
-                              text: 'Hola,',
+                              text: 'Hola, ',
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
@@ -91,7 +91,11 @@ class _HomePagWidgetState extends State<HomePagWidget> {
                                   ),
                             ),
                             TextSpan(
-                              text: currentUserDisplayName,
+                              text: valueOrDefault<String>(
+                                valueOrDefault(
+                                    currentUserDocument?.nickName, ''),
+                                'jh',
+                              ),
                               style: TextStyle(),
                             )
                           ],

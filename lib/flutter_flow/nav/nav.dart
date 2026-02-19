@@ -83,18 +83,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : HomePageWidget(),
+          appStateNotifier.loggedIn ? NavBarPage() : AuthUcsmWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : HomePageWidget(),
-        ),
-        FFRoute(
-          name: HomePageWidget.routeName,
-          path: HomePageWidget.routePath,
-          builder: (context, params) => HomePageWidget(),
+              appStateNotifier.loggedIn ? NavBarPage() : AuthUcsmWidget(),
         ),
         FFRoute(
             name: HomePagWidget.routeName,
@@ -133,9 +128,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     page: ReclamosWidget(),
                   )),
         FFRoute(
-          name: AutUcsmWidget.routeName,
-          path: AutUcsmWidget.routePath,
-          builder: (context, params) => AutUcsmWidget(),
+          name: AuthUcsmWidget.routeName,
+          path: AuthUcsmWidget.routePath,
+          builder: (context, params) => AuthUcsmWidget(),
         ),
         FFRoute(
           name: ProfileWidget.routeName,
@@ -151,6 +146,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: CreateEventWidget.routeName,
           path: CreateEventWidget.routePath,
           builder: (context, params) => CreateEventWidget(),
+        ),
+        FFRoute(
+          name: ADASFAWidget.routeName,
+          path: ADASFAWidget.routePath,
+          builder: (context, params) => ADASFAWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -321,7 +321,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/homePage';
+            return '/authUcsm';
           }
           return null;
         },
