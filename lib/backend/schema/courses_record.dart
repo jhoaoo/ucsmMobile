@@ -16,17 +16,30 @@ class CoursesRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "id" field.
-  int? _id;
-  int get id => _id ?? 0;
-  bool hasId() => _id != null;
+  // "couseName" field.
+  String? _couseName;
+  String get couseName => _couseName ?? '';
+  bool hasCouseName() => _couseName != null;
+
+  // "tests" field.
+  List<String>? _tests;
+  List<String> get tests => _tests ?? const [];
+  bool hasTests() => _tests != null;
+
+  DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
-    _id = castToType<int>(snapshotData['id']);
+    _couseName = snapshotData['couseName'] as String?;
+    _tests = getDataList(snapshotData['tests']);
   }
 
-  static CollectionReference get collection =>
-      FirebaseFirestore.instance.collection('courses');
+  static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
+      parent != null
+          ? parent.collection('courses')
+          : FirebaseFirestore.instance.collectionGroup('courses');
+
+  static DocumentReference createDoc(DocumentReference parent, {String? id}) =>
+      parent.collection('courses').doc(id);
 
   static Stream<CoursesRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map((s) => CoursesRecord.fromSnapshot(s));
@@ -60,11 +73,11 @@ class CoursesRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createCoursesRecordData({
-  int? id,
+  String? couseName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'id': id,
+      'couseName': couseName,
     }.withoutNulls,
   );
 
@@ -76,11 +89,14 @@ class CoursesRecordDocumentEquality implements Equality<CoursesRecord> {
 
   @override
   bool equals(CoursesRecord? e1, CoursesRecord? e2) {
-    return e1?.id == e2?.id;
+    const listEquality = ListEquality();
+    return e1?.couseName == e2?.couseName &&
+        listEquality.equals(e1?.tests, e2?.tests);
   }
 
   @override
-  int hash(CoursesRecord? e) => const ListEquality().hash([e?.id]);
+  int hash(CoursesRecord? e) =>
+      const ListEquality().hash([e?.couseName, e?.tests]);
 
   @override
   bool isValidKey(Object? o) => o is CoursesRecord;

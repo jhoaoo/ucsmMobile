@@ -1,13 +1,6 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /reports/{document} {
-      allow create: if true;
-      allow read: if true;
-      allow write: if false;
-      allow delete: if false;
-    }
-
     match /user/{document} {
       allow create: if true;
       allow read: if true;
@@ -22,25 +15,30 @@ service cloud.firestore {
       allow delete: if false;
     }
 
-    match /materials/{document} {
+    match /career/{document} {
       allow create: if true;
       allow read: if true;
       allow write: if false;
       allow delete: if false;
     }
 
-    match /carrers/{document} {
+    match /semester/{document} {
       allow create: if true;
       allow read: if true;
-      allow write: if true;
-      allow delete: if true;
+      allow write: if false;
+      allow delete: if false;
     }
 
-    match /course/{document} {
+    match /semester/{parent}/courses/{document} {
       allow create: if true;
       allow read: if true;
-      allow write: if true;
-      allow delete: if true;
+      allow write: if false;
+      allow delete: if false;
     }
+
+    match /{path=**}/courses/{document} {
+      allow read: if true;
+    }
+
   }
 }

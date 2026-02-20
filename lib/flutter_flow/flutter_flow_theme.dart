@@ -147,27 +147,27 @@ class LightModeTheme extends FlutterFlowTheme {
   @Deprecated('Use tertiary instead')
   Color get tertiaryColor => tertiary;
 
-  late Color primary = const Color(0xFF00B66D);
-  late Color secondary = const Color(0xFF39D2C0);
-  late Color tertiary = const Color(0xFFBDEEEA);
+  late Color primary = const Color(0xFF0F2A44);
+  late Color secondary = const Color(0xFF1C6EA4);
+  late Color tertiary = const Color(0xFF4FA3D1);
   late Color alternate = const Color(0xFFE0E3E7);
-  late Color primaryText = const Color(0xFF14181B);
-  late Color secondaryText = const Color(0xFF57636C);
+  late Color primaryText = const Color(0xFF0B1F33);
+  late Color secondaryText = const Color(0xFF5F7285);
   late Color primaryBackground = const Color(0xFFF1F4F8);
   late Color secondaryBackground = const Color(0xFFFFFFFF);
-  late Color accent1 = const Color(0x4C4B39EF);
-  late Color accent2 = const Color(0x4D39D2C0);
-  late Color accent3 = const Color(0x4DEE8B60);
-  late Color accent4 = const Color(0xCCFFFFFF);
-  late Color success = const Color(0xFF249689);
-  late Color warning = const Color(0xFFF9CF58);
-  late Color error = const Color(0xFFFF5963);
-  late Color info = const Color(0xFFFFFFFF);
+  late Color accent1 = const Color(0xFF2D9CDB);
+  late Color accent2 = const Color(0xFF56CCF2);
+  late Color accent3 = const Color(0xFFA7D8F5);
+  late Color accent4 = const Color(0xFFDCEFFD);
+  late Color success = const Color(0xFF27AE60);
+  late Color warning = const Color(0xFFF2C94C);
+  late Color error = const Color(0xFFEB5757);
+  late Color info = const Color(0xFF2F80ED);
 
-  late Color darkVibrantColor = const Color(0xFF00D586);
-  late Color mutedColor = const Color(0xFF8C8762);
-  late Color lightMutedColor = const Color(0xFFACD5D4);
-  late Color darkMutedColor = const Color(0xFF283038);
+  late Color darkVibrantColor = const Color(0xFF0A2540);
+  late Color mutedColor = const Color(0xFF8FA3B8);
+  late Color lightMutedColor = const Color(0xFFE9F0F6);
+  late Color darkMutedColor = const Color(0xFF3A4A5A);
 }
 
 abstract class Typography {

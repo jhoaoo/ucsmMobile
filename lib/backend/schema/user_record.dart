@@ -56,15 +56,15 @@ class UserRecord extends FirestoreRecord {
   String get carreer => _carreer ?? '';
   bool hasCarreer() => _carreer != null;
 
-  // "semester" field.
-  String? _semester;
-  String get semester => _semester ?? '';
-  bool hasSemester() => _semester != null;
-
   // "nick_name" field.
   String? _nickName;
   String get nickName => _nickName ?? '';
   bool hasNickName() => _nickName != null;
+
+  // "semester" field.
+  int? _semester;
+  int get semester => _semester ?? 0;
+  bool hasSemester() => _semester != null;
 
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
@@ -75,8 +75,8 @@ class UserRecord extends FirestoreRecord {
     _phoneNumber = snapshotData['phone_number'] as String?;
     _bio = snapshotData['bio'] as String?;
     _carreer = snapshotData['carreer'] as String?;
-    _semester = snapshotData['semester'] as String?;
     _nickName = snapshotData['nick_name'] as String?;
+    _semester = castToType<int>(snapshotData['semester']);
   }
 
   static CollectionReference get collection =>
@@ -121,8 +121,8 @@ Map<String, dynamic> createUserRecordData({
   String? phoneNumber,
   String? bio,
   String? carreer,
-  String? semester,
   String? nickName,
+  int? semester,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -134,8 +134,8 @@ Map<String, dynamic> createUserRecordData({
       'phone_number': phoneNumber,
       'bio': bio,
       'carreer': carreer,
-      'semester': semester,
       'nick_name': nickName,
+      'semester': semester,
     }.withoutNulls,
   );
 
@@ -155,8 +155,8 @@ class UserRecordDocumentEquality implements Equality<UserRecord> {
         e1?.phoneNumber == e2?.phoneNumber &&
         e1?.bio == e2?.bio &&
         e1?.carreer == e2?.carreer &&
-        e1?.semester == e2?.semester &&
-        e1?.nickName == e2?.nickName;
+        e1?.nickName == e2?.nickName &&
+        e1?.semester == e2?.semester;
   }
 
   @override
@@ -169,8 +169,8 @@ class UserRecordDocumentEquality implements Equality<UserRecord> {
         e?.phoneNumber,
         e?.bio,
         e?.carreer,
-        e?.semester,
-        e?.nickName
+        e?.nickName,
+        e?.semester
       ]);
 
   @override

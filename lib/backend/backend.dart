@@ -5,12 +5,11 @@ import '../auth/firebase_auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'schema/util/firestore_util.dart';
 
-import 'schema/reports_record.dart';
 import 'schema/user_record.dart';
 import 'schema/events_record.dart';
-import 'schema/materials_record.dart';
-import 'schema/carrers_record.dart';
-import 'schema/course_record.dart';
+import 'schema/career_record.dart';
+import 'schema/semester_record.dart';
+import 'schema/courses_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -19,49 +18,11 @@ export 'schema/index.dart';
 export 'schema/util/firestore_util.dart';
 export 'schema/util/schema_util.dart';
 
-export 'schema/reports_record.dart';
 export 'schema/user_record.dart';
 export 'schema/events_record.dart';
-export 'schema/materials_record.dart';
-export 'schema/carrers_record.dart';
-export 'schema/course_record.dart';
-
-/// Functions to query ReportsRecords (as a Stream and as a Future).
-Future<int> queryReportsRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      ReportsRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<ReportsRecord>> queryReportsRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      ReportsRecord.collection,
-      ReportsRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<ReportsRecord>> queryReportsRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      ReportsRecord.collection,
-      ReportsRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
+export 'schema/career_record.dart';
+export 'schema/semester_record.dart';
+export 'schema/courses_record.dart';
 
 /// Functions to query UserRecords (as a Stream and as a Future).
 Future<int> queryUserRecordCount({
@@ -137,112 +98,115 @@ Future<List<EventsRecord>> queryEventsRecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query MaterialsRecords (as a Stream and as a Future).
-Future<int> queryMaterialsRecordCount({
+/// Functions to query CareerRecords (as a Stream and as a Future).
+Future<int> queryCareerRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      MaterialsRecord.collection,
+      CareerRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<MaterialsRecord>> queryMaterialsRecord({
+Stream<List<CareerRecord>> queryCareerRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      MaterialsRecord.collection,
-      MaterialsRecord.fromSnapshot,
+      CareerRecord.collection,
+      CareerRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<MaterialsRecord>> queryMaterialsRecordOnce({
+Future<List<CareerRecord>> queryCareerRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      MaterialsRecord.collection,
-      MaterialsRecord.fromSnapshot,
+      CareerRecord.collection,
+      CareerRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-/// Functions to query CarrersRecords (as a Stream and as a Future).
-Future<int> queryCarrersRecordCount({
+/// Functions to query SemesterRecords (as a Stream and as a Future).
+Future<int> querySemesterRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      CarrersRecord.collection,
+      SemesterRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<CarrersRecord>> queryCarrersRecord({
+Stream<List<SemesterRecord>> querySemesterRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      CarrersRecord.collection,
-      CarrersRecord.fromSnapshot,
+      SemesterRecord.collection,
+      SemesterRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<CarrersRecord>> queryCarrersRecordOnce({
+Future<List<SemesterRecord>> querySemesterRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      CarrersRecord.collection,
-      CarrersRecord.fromSnapshot,
+      SemesterRecord.collection,
+      SemesterRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-/// Functions to query CourseRecords (as a Stream and as a Future).
-Future<int> queryCourseRecordCount({
+/// Functions to query CoursesRecords (as a Stream and as a Future).
+Future<int> queryCoursesRecordCount({
+  DocumentReference? parent,
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      CourseRecord.collection,
+      CoursesRecord.collection(parent),
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<CourseRecord>> queryCourseRecord({
+Stream<List<CoursesRecord>> queryCoursesRecord({
+  DocumentReference? parent,
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      CourseRecord.collection,
-      CourseRecord.fromSnapshot,
+      CoursesRecord.collection(parent),
+      CoursesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<CourseRecord>> queryCourseRecordOnce({
+Future<List<CoursesRecord>> queryCoursesRecordOnce({
+  DocumentReference? parent,
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      CourseRecord.collection,
-      CourseRecord.fromSnapshot,
+      CoursesRecord.collection(parent),
+      CoursesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

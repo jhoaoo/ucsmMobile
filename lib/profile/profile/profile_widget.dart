@@ -547,8 +547,10 @@ class _ProfileWidgetState extends State<ProfileWidget> {
                                           builder: (context) => Text(
                                             valueOrDefault<String>(
                                               valueOrDefault(
-                                                  currentUserDocument?.semester,
-                                                  ''),
+                                                      currentUserDocument
+                                                          ?.semester,
+                                                      0)
+                                                  .toString(),
                                               'Semestre',
                                             ),
                                             textAlign: TextAlign.start,

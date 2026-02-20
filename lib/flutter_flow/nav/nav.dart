@@ -92,14 +92,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               appStateNotifier.loggedIn ? NavBarPage() : AuthUcsmWidget(),
         ),
         FFRoute(
-            name: HomePagWidget.routeName,
-            path: HomePagWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'home_pag')
-                : NavBarPage(
-                    initialPage: 'home_pag',
-                    page: HomePagWidget(),
-                  )),
+          name: HomePagWidget.routeName,
+          path: HomePagWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'home_pag')
+              : HomePagWidget(),
+        ),
         FFRoute(
             name: MaterialesWidget.routeName,
             path: MaterialesWidget.routePath,
@@ -108,15 +106,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 : NavBarPage(
                     initialPage: 'materiales',
                     page: MaterialesWidget(),
-                  )),
-        FFRoute(
-            name: EventosWidget.routeName,
-            path: EventosWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'eventos')
-                : NavBarPage(
-                    initialPage: 'eventos',
-                    page: EventosWidget(),
                   )),
         FFRoute(
             name: ReclamosWidget.routeName,
@@ -151,6 +140,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ADASFAWidget.routeName,
           path: ADASFAWidget.routePath,
           builder: (context, params) => ADASFAWidget(),
+        ),
+        FFRoute(
+          name: QuickAccessWidget.routeName,
+          path: QuickAccessWidget.routePath,
+          builder: (context, params) => QuickAccessWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

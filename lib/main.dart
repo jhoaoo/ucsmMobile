@@ -154,7 +154,6 @@ class _NavBarPageState extends State<NavBarPage> {
     final tabs = {
       'home_pag': HomePagWidget(),
       'materiales': MaterialesWidget(),
-      'eventos': EventosWidget(),
       'reclamos': ReclamosWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
@@ -180,12 +179,8 @@ class _NavBarPageState extends State<NavBarPage> {
               Icons.home_outlined,
               size: 24.0,
             ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.edit_document,
+            activeIcon: Icon(
+              Icons.home,
               size: 24.0,
             ),
             label: 'Home',
@@ -193,7 +188,7 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.event_available,
+              Icons.edit_document,
               size: 24.0,
             ),
             label: 'Home',

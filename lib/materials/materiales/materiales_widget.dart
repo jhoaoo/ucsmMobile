@@ -1,15 +1,11 @@
 import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
+import '/components/expandable_materials_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:collection/collection.dart';
-import 'package:expandable/expandable.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 import 'materiales_model.dart';
@@ -34,18 +30,6 @@ class _MaterialesWidgetState extends State<MaterialesWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => MaterialesModel());
-
-    // On page load action.
-    SchedulerBinding.instance.addPostFrameCallback((_) async {
-      _model.courses = await queryCourseRecordOnce();
-      _model.carriers = _model.courses!
-          .unique((e) => e.carrier)
-          .map((e) => e.carrier)
-          .toList()
-          .toList()
-          .cast<String>();
-      safeSetState(() {});
-    });
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -304,148 +288,26 @@ class _MaterialesWidgetState extends State<MaterialesWidget> {
                     ),
                   ].divide(SizedBox(width: 8.0)).around(SizedBox(width: 8.0)),
                 ),
-                Builder(
-                  builder: (context) {
-                    final item = _model.carriers.toList();
-
-                    return Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: List.generate(item.length, (itemIndex) {
-                        final itemItem = item[itemIndex];
-                        return Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 8.0, 0.0),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              borderRadius: BorderRadius.circular(14.0),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  8.0, 0.0, 8.0, 0.0),
-                              child: ExpandableNotifier(
-                                initialExpanded: false,
-                                child: ExpandablePanel(
-                                  header: Text(
-                                    itemItem,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.inter(
-                                            fontWeight: FontWeight.w500,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          fontSize: 16.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                  collapsed: Container(),
-                                  expanded: Builder(
-                                    builder: (context) {
-                                      final course = _model.courses
-                                              ?.where(
-                                                  (e) => e.carrier == itemItem)
-                                              .toList()
-                                              ?.toList() ??
-                                          [];
-
-                                      return Column(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: List.generate(course.length,
-                                            (courseIndex) {
-                                          final courseItem =
-                                              course[courseIndex];
-                                          return Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Container(
-                                                width:
-                                                    MediaQuery.sizeOf(context)
-                                                            .width *
-                                                        0.9,
-                                                height: 40.0,
-                                                decoration: BoxDecoration(
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryBackground,
-                                                  border: Border.all(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .secondaryBackground,
-                                                  ),
-                                                ),
-                                                child: Padding(
-                                                  padding: EdgeInsets.all(8.0),
-                                                  child: Text(
-                                                    courseItem.courseName,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          font:
-                                                              GoogleFonts.inter(
-                                                            fontWeight:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                            fontStyle:
-                                                                FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                          ),
-                                                          letterSpacing: 0.0,
-                                                          fontWeight:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontWeight,
-                                                          fontStyle:
-                                                              FlutterFlowTheme.of(
-                                                                      context)
-                                                                  .bodyMedium
-                                                                  .fontStyle,
-                                                        ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          );
-                                        }).addToEnd(SizedBox(height: 4.0)),
-                                      );
-                                    },
-                                  ),
-                                  theme: ExpandableThemeData(
-                                    tapHeaderToExpand: true,
-                                    tapBodyToExpand: false,
-                                    tapBodyToCollapse: false,
-                                    headerAlignment:
-                                        ExpandablePanelHeaderAlignment.center,
-                                    hasIcon: true,
-                                    expandIcon: Icons.expand_more,
-                                    collapseIcon:
-                                        Icons.keyboard_arrow_up_rounded,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
-                      })
-                          .divide(SizedBox(height: 4.0))
-                          .around(SizedBox(height: 4.0)),
-                    );
-                  },
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(14.0),
+                        ),
+                      ),
+                    ),
+                  ].divide(SizedBox(height: 4.0)).around(SizedBox(height: 4.0)),
+                ),
+                wrapWithModel(
+                  model: _model.expandableMaterialsModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: ExpandableMaterialsWidget(),
                 ),
               ]
                   .divide(SizedBox(height: 8.0))

@@ -54,7 +54,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget> {
     _model.carrierFocusNode ??= FocusNode();
 
     _model.semesterTextController ??= TextEditingController(
-        text: valueOrDefault(currentUserDocument?.semester, ''));
+        text: valueOrDefault(currentUserDocument?.semester, 0).toString());
     _model.semesterFocusNode ??= FocusNode();
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
@@ -963,7 +963,7 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget> {
                     displayName: _model.nameTextController.text,
                     phoneNumber: _model.numberTextController.text,
                     carreer: _model.carrierTextController.text,
-                    semester: _model.semesterTextController.text,
+                    semester: int.tryParse(_model.semesterTextController.text),
                     nickName: _model.nickNameTextController.text,
                     photoUrl: _model.uploadedFileUrl_uploadDataJ32firebase,
                   ));
