@@ -6,5 +6,7 @@ export '/auth_ucsm/auth_ucsm_widget.dart' show AuthUcsmWidget;
 export '/profile/profile/profile_widget.dart' show ProfileWidget;
 export '/profile/profile_edit/profile_edit_widget.dart' show ProfileEditWidget;
 export '/events/create_event/create_event_widget.dart' show CreateEventWidget;
-export '/a_d_a_s_f_a/a_d_a_s_f_a_widget.dart' show ADASFAWidget;
+export '/events/user_events/user_events_widget.dart' show UserEventsWidget;
 export '/quick_access/quick_access_widget.dart' show QuickAccessWidget;
+export '/pruebas/pruebas_widget.dart' show PruebasWidget;
+export '/menu/menu_widget.dart' show MenuWidget;

@@ -10,6 +10,7 @@ import 'schema/events_record.dart';
 import 'schema/career_record.dart';
 import 'schema/semester_record.dart';
 import 'schema/courses_record.dart';
+import 'schema/quick_launcher_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart' hide Order;
@@ -23,6 +24,7 @@ export 'schema/events_record.dart';
 export 'schema/career_record.dart';
 export 'schema/semester_record.dart';
 export 'schema/courses_record.dart';
+export 'schema/quick_launcher_record.dart';
 
 /// Functions to query UserRecords (as a Stream and as a Future).
 Future<int> queryUserRecordCount({
@@ -207,6 +209,43 @@ Future<List<CoursesRecord>> queryCoursesRecordOnce({
     queryCollectionOnce(
       CoursesRecord.collection(parent),
       CoursesRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+/// Functions to query QuickLauncherRecords (as a Stream and as a Future).
+Future<int> queryQuickLauncherRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      QuickLauncherRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<QuickLauncherRecord>> queryQuickLauncherRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      QuickLauncherRecord.collection,
+      QuickLauncherRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<QuickLauncherRecord>> queryQuickLauncherRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      QuickLauncherRecord.collection,
+      QuickLauncherRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

@@ -137,14 +137,27 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => CreateEventWidget(),
         ),
         FFRoute(
-          name: ADASFAWidget.routeName,
-          path: ADASFAWidget.routePath,
-          builder: (context, params) => ADASFAWidget(),
+          name: UserEventsWidget.routeName,
+          path: UserEventsWidget.routePath,
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'user_events')
+              : UserEventsWidget(),
         ),
         FFRoute(
           name: QuickAccessWidget.routeName,
           path: QuickAccessWidget.routePath,
           builder: (context, params) => QuickAccessWidget(),
+        ),
+        FFRoute(
+          name: PruebasWidget.routeName,
+          path: PruebasWidget.routePath,
+          builder: (context, params) => PruebasWidget(),
+        ),
+        FFRoute(
+          name: MenuWidget.routeName,
+          path: MenuWidget.routePath,
+          builder: (context, params) =>
+              params.isEmpty ? NavBarPage(initialPage: 'menu') : MenuWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -346,6 +359,7 @@ class FFRoute {
           return transitionInfo.hasTransition
               ? CustomTransitionPage(
                   key: state.pageKey,
+                  name: state.name,
                   child: child,
                   transitionDuration: transitionInfo.duration,
                   transitionsBuilder:
@@ -363,7 +377,8 @@ class FFRoute {
                     child,
                   ),
                 )
-              : MaterialPage(key: state.pageKey, child: child);
+              : MaterialPage(
+                  key: state.pageKey, name: state.name, child: child);
         },
         routes: routes,
       );

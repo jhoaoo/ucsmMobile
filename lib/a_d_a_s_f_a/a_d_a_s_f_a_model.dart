@@ -22,6 +22,8 @@ class ADASFAModel extends FlutterFlowModel<ADASFAWidget> {
 
   // Stores action output result for [Firestore Query - Query a collection] action in Row widget.
   EventsRecord? eventos;
+  // Stores action output result for [Firestore Query - Query a collection] action in Row widget.
+  EventsRecord? evento;
 
   @override
   void initState(BuildContext context) {}
