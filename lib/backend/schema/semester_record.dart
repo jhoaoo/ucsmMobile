@@ -31,10 +31,16 @@ class SemesterRecord extends FirestoreRecord {
   int get age => _age ?? 0;
   bool hasAge() => _age != null;
 
+  // "test" field.
+  String? _test;
+  String get test => _test ?? '';
+  bool hasTest() => _test != null;
+
   void _initializeFields() {
     _refCarrer = snapshotData['refCarrer'] as DocumentReference?;
     _cycle = castToType<int>(snapshotData['cycle']);
     _age = castToType<int>(snapshotData['age']);
+    _test = snapshotData['test'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -75,12 +81,14 @@ Map<String, dynamic> createSemesterRecordData({
   DocumentReference? refCarrer,
   int? cycle,
   int? age,
+  String? test,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'refCarrer': refCarrer,
       'cycle': cycle,
       'age': age,
+      'test': test,
     }.withoutNulls,
   );
 
@@ -94,12 +102,13 @@ class SemesterRecordDocumentEquality implements Equality<SemesterRecord> {
   bool equals(SemesterRecord? e1, SemesterRecord? e2) {
     return e1?.refCarrer == e2?.refCarrer &&
         e1?.cycle == e2?.cycle &&
-        e1?.age == e2?.age;
+        e1?.age == e2?.age &&
+        e1?.test == e2?.test;
   }
 
   @override
   int hash(SemesterRecord? e) =>
-      const ListEquality().hash([e?.refCarrer, e?.cycle, e?.age]);
+      const ListEquality().hash([e?.refCarrer, e?.cycle, e?.age, e?.test]);
 
   @override
   bool isValidKey(Object? o) => o is SemesterRecord;

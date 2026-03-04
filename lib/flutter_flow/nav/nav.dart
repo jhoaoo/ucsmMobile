@@ -124,7 +124,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ProfileWidget.routeName,
           path: ProfileWidget.routePath,
-          builder: (context, params) => ProfileWidget(),
+          builder: (context, params) => params.isEmpty
+              ? NavBarPage(initialPage: 'profile')
+              : ProfileWidget(),
         ),
         FFRoute(
           name: ProfileEditWidget.routeName,
@@ -156,8 +158,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: MenuWidget.routeName,
           path: MenuWidget.routePath,
-          builder: (context, params) =>
-              params.isEmpty ? NavBarPage(initialPage: 'menu') : MenuWidget(),
+          builder: (context, params) => MenuWidget(),
+        ),
+        FFRoute(
+          name: UploadMaterialsWidget.routeName,
+          path: UploadMaterialsWidget.routePath,
+          builder: (context, params) => UploadMaterialsWidget(),
+        ),
+        FFRoute(
+          name: ConfigurationWidget.routeName,
+          path: ConfigurationWidget.routePath,
+          builder: (context, params) => ConfigurationWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

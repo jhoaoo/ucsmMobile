@@ -16,13 +16,13 @@ class ReportsRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "type" field.
-  String? _type;
-  String get type => _type ?? '';
-  bool hasType() => _type != null;
+  // "categoryReport" field.
+  String? _categoryReport;
+  String get categoryReport => _categoryReport ?? '';
+  bool hasCategoryReport() => _categoryReport != null;
 
   void _initializeFields() {
-    _type = snapshotData['type'] as String?;
+    _categoryReport = snapshotData['categoryReport'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -60,11 +60,11 @@ class ReportsRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createReportsRecordData({
-  String? type,
+  String? categoryReport,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'type': type,
+      'categoryReport': categoryReport,
     }.withoutNulls,
   );
 
@@ -76,11 +76,11 @@ class ReportsRecordDocumentEquality implements Equality<ReportsRecord> {
 
   @override
   bool equals(ReportsRecord? e1, ReportsRecord? e2) {
-    return e1?.type == e2?.type;
+    return e1?.categoryReport == e2?.categoryReport;
   }
 
   @override
-  int hash(ReportsRecord? e) => const ListEquality().hash([e?.type]);
+  int hash(ReportsRecord? e) => const ListEquality().hash([e?.categoryReport]);
 
   @override
   bool isValidKey(Object? o) => o is ReportsRecord;

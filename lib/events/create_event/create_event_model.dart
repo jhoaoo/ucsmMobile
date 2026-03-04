@@ -1,51 +1,59 @@
-import '/auth/firebase_auth/auth_util.dart';
-import '/backend/backend.dart';
-import '/backend/firebase_storage/storage.dart';
-import '/flutter_flow/flutter_flow_expanded_image_view.dart';
-import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/flutter_flow/upload_data.dart';
+import '/flutter_flow/form_field_controller.dart';
 import 'dart:ui';
 import 'create_event_widget.dart' show CreateEventWidget;
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 
 class CreateEventModel extends FlutterFlowModel<CreateEventWidget> {
   ///  State fields for stateful widgets in this page.
 
-  final formKey = GlobalKey<FormState>();
-  // State field(s) for productName widget.
-  FocusNode? productNameFocusNode;
-  TextEditingController? productNameTextController;
-  String? Function(BuildContext, String?)? productNameTextControllerValidator;
-  // State field(s) for description widget.
+  // State field(s) for event widget.
+  String? eventValue;
+  FormFieldController<String>? eventValueController;
+  // State field(s) for tittleEvent widget.
+  FocusNode? tittleEventFocusNode;
+  TextEditingController? tittleEventTextController;
+  String? Function(BuildContext, String?)? tittleEventTextControllerValidator;
+  // State field(s) for Description widget.
   FocusNode? descriptionFocusNode;
   TextEditingController? descriptionTextController;
   String? Function(BuildContext, String?)? descriptionTextControllerValidator;
-  bool isDataUploading_uploadData5qo = false;
-  FFUploadedFile uploadedLocalFile_uploadData5qo =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-
-  bool isDataUploading_uploadData2nt = false;
-  FFUploadedFile uploadedLocalFile_uploadData2nt =
-      FFUploadedFile(bytes: Uint8List.fromList([]), originalFilename: '');
-  String uploadedFileUrl_uploadData2nt = '';
+  // State field(s) for date widget.
+  FocusNode? dateFocusNode;
+  TextEditingController? dateTextController;
+  String? Function(BuildContext, String?)? dateTextControllerValidator;
+  // State field(s) for hour widget.
+  FocusNode? hourFocusNode;
+  TextEditingController? hourTextController;
+  String? Function(BuildContext, String?)? hourTextControllerValidator;
+  // State field(s) for place widget.
+  FocusNode? placeFocusNode;
+  TextEditingController? placeTextController;
+  String? Function(BuildContext, String?)? placeTextControllerValidator;
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
-    productNameFocusNode?.dispose();
-    productNameTextController?.dispose();
+    tittleEventFocusNode?.dispose();
+    tittleEventTextController?.dispose();
 
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();
+
+    dateFocusNode?.dispose();
+    dateTextController?.dispose();
+
+    hourFocusNode?.dispose();
+    hourTextController?.dispose();
+
+    placeFocusNode?.dispose();
+    placeTextController?.dispose();
   }
 }

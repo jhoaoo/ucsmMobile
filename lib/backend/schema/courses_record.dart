@@ -16,21 +16,39 @@ class CoursesRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "couseName" field.
-  String? _couseName;
-  String get couseName => _couseName ?? '';
-  bool hasCouseName() => _couseName != null;
-
   // "tests" field.
   List<String>? _tests;
   List<String> get tests => _tests ?? const [];
   bool hasTests() => _tests != null;
 
+  // "autorName" field.
+  String? _autorName;
+  String get autorName => _autorName ?? '';
+  bool hasAutorName() => _autorName != null;
+
+  // "fileName" field.
+  String? _fileName;
+  String get fileName => _fileName ?? '';
+  bool hasFileName() => _fileName != null;
+
+  // "ageDocument" field.
+  DateTime? _ageDocument;
+  DateTime? get ageDocument => _ageDocument;
+  bool hasAgeDocument() => _ageDocument != null;
+
+  // "courseName" field.
+  String? _courseName;
+  String get courseName => _courseName ?? '';
+  bool hasCourseName() => _courseName != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
-    _couseName = snapshotData['couseName'] as String?;
     _tests = getDataList(snapshotData['tests']);
+    _autorName = snapshotData['autorName'] as String?;
+    _fileName = snapshotData['fileName'] as String?;
+    _ageDocument = snapshotData['ageDocument'] as DateTime?;
+    _courseName = snapshotData['courseName'] as String?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -73,11 +91,17 @@ class CoursesRecord extends FirestoreRecord {
 }
 
 Map<String, dynamic> createCoursesRecordData({
-  String? couseName,
+  String? autorName,
+  String? fileName,
+  DateTime? ageDocument,
+  String? courseName,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
-      'couseName': couseName,
+      'autorName': autorName,
+      'fileName': fileName,
+      'ageDocument': ageDocument,
+      'courseName': courseName,
     }.withoutNulls,
   );
 
@@ -90,13 +114,16 @@ class CoursesRecordDocumentEquality implements Equality<CoursesRecord> {
   @override
   bool equals(CoursesRecord? e1, CoursesRecord? e2) {
     const listEquality = ListEquality();
-    return e1?.couseName == e2?.couseName &&
-        listEquality.equals(e1?.tests, e2?.tests);
+    return listEquality.equals(e1?.tests, e2?.tests) &&
+        e1?.autorName == e2?.autorName &&
+        e1?.fileName == e2?.fileName &&
+        e1?.ageDocument == e2?.ageDocument &&
+        e1?.courseName == e2?.courseName;
   }
 
   @override
-  int hash(CoursesRecord? e) =>
-      const ListEquality().hash([e?.couseName, e?.tests]);
+  int hash(CoursesRecord? e) => const ListEquality().hash(
+      [e?.tests, e?.autorName, e?.fileName, e?.ageDocument, e?.courseName]);
 
   @override
   bool isValidKey(Object? o) => o is CoursesRecord;

@@ -152,11 +152,11 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
+      'home_pag': HomePagWidget(),
       'materiales': MaterialesWidget(),
       'reclamos': ReclamosWidget(),
-      'home_pag': HomePagWidget(),
       'user_events': UserEventsWidget(),
-      'menu': MenuWidget(),
+      'profile': ProfileWidget(),
     };
     final currentIndex = tabs.keys.toList().indexOf(_currentPageName);
 
@@ -178,10 +178,22 @@ class _NavBarPageState extends State<NavBarPage> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.edit_document,
+              Icons.home_outlined,
               size: 24.0,
             ),
-            label: 'Home',
+            activeIcon: Icon(
+              Icons.home,
+              size: 24.0,
+            ),
+            label: 'Inicio',
+            tooltip: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.menu_book_rounded,
+              size: 24.0,
+            ),
+            label: 'Materiales',
             tooltip: '',
           ),
           BottomNavigationBarItem(
@@ -194,30 +206,18 @@ class _NavBarPageState extends State<NavBarPage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.home_outlined,
+              Icons.groups_2,
               size: 24.0,
             ),
-            activeIcon: Icon(
-              Icons.home,
-              size: 24.0,
-            ),
-            label: 'Home',
+            label: 'Eventos',
             tooltip: '',
           ),
           BottomNavigationBarItem(
             icon: Icon(
-              Icons.event_outlined,
+              Icons.person,
               size: 24.0,
             ),
-            label: 'Home',
-            tooltip: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.restaurant_menu_sharp,
-              size: 24.0,
-            ),
-            label: 'Home',
+            label: 'Perfil',
             tooltip: '',
           )
         ],
