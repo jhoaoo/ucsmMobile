@@ -16,11 +16,6 @@ class CoursesRecord extends FirestoreRecord {
     _initializeFields();
   }
 
-  // "tests" field.
-  List<String>? _tests;
-  List<String> get tests => _tests ?? const [];
-  bool hasTests() => _tests != null;
-
   // "autorName" field.
   String? _autorName;
   String get autorName => _autorName ?? '';
@@ -41,14 +36,43 @@ class CoursesRecord extends FirestoreRecord {
   String get courseName => _courseName ?? '';
   bool hasCourseName() => _courseName != null;
 
+  // "semester" field.
+  String? _semester;
+  String get semester => _semester ?? '';
+  bool hasSemester() => _semester != null;
+
+  // "careerName" field.
+  String? _careerName;
+  String get careerName => _careerName ?? '';
+  bool hasCareerName() => _careerName != null;
+
+  // "webRecurse" field.
+  String? _webRecurse;
+  String get webRecurse => _webRecurse ?? '';
+  bool hasWebRecurse() => _webRecurse != null;
+
+  // "documentPDF" field.
+  String? _documentPDF;
+  String get documentPDF => _documentPDF ?? '';
+  bool hasDocumentPDF() => _documentPDF != null;
+
+  // "createdAt" field.
+  DateTime? _createdAt;
+  DateTime? get createdAt => _createdAt;
+  bool hasCreatedAt() => _createdAt != null;
+
   DocumentReference get parentReference => reference.parent.parent!;
 
   void _initializeFields() {
-    _tests = getDataList(snapshotData['tests']);
     _autorName = snapshotData['autorName'] as String?;
     _fileName = snapshotData['fileName'] as String?;
     _ageDocument = snapshotData['ageDocument'] as DateTime?;
     _courseName = snapshotData['courseName'] as String?;
+    _semester = snapshotData['semester'] as String?;
+    _careerName = snapshotData['careerName'] as String?;
+    _webRecurse = snapshotData['webRecurse'] as String?;
+    _documentPDF = snapshotData['documentPDF'] as String?;
+    _createdAt = snapshotData['createdAt'] as DateTime?;
   }
 
   static Query<Map<String, dynamic>> collection([DocumentReference? parent]) =>
@@ -95,6 +119,11 @@ Map<String, dynamic> createCoursesRecordData({
   String? fileName,
   DateTime? ageDocument,
   String? courseName,
+  String? semester,
+  String? careerName,
+  String? webRecurse,
+  String? documentPDF,
+  DateTime? createdAt,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -102,6 +131,11 @@ Map<String, dynamic> createCoursesRecordData({
       'fileName': fileName,
       'ageDocument': ageDocument,
       'courseName': courseName,
+      'semester': semester,
+      'careerName': careerName,
+      'webRecurse': webRecurse,
+      'documentPDF': documentPDF,
+      'createdAt': createdAt,
     }.withoutNulls,
   );
 
@@ -113,17 +147,29 @@ class CoursesRecordDocumentEquality implements Equality<CoursesRecord> {
 
   @override
   bool equals(CoursesRecord? e1, CoursesRecord? e2) {
-    const listEquality = ListEquality();
-    return listEquality.equals(e1?.tests, e2?.tests) &&
-        e1?.autorName == e2?.autorName &&
+    return e1?.autorName == e2?.autorName &&
         e1?.fileName == e2?.fileName &&
         e1?.ageDocument == e2?.ageDocument &&
-        e1?.courseName == e2?.courseName;
+        e1?.courseName == e2?.courseName &&
+        e1?.semester == e2?.semester &&
+        e1?.careerName == e2?.careerName &&
+        e1?.webRecurse == e2?.webRecurse &&
+        e1?.documentPDF == e2?.documentPDF &&
+        e1?.createdAt == e2?.createdAt;
   }
 
   @override
-  int hash(CoursesRecord? e) => const ListEquality().hash(
-      [e?.tests, e?.autorName, e?.fileName, e?.ageDocument, e?.courseName]);
+  int hash(CoursesRecord? e) => const ListEquality().hash([
+        e?.autorName,
+        e?.fileName,
+        e?.ageDocument,
+        e?.courseName,
+        e?.semester,
+        e?.careerName,
+        e?.webRecurse,
+        e?.documentPDF,
+        e?.createdAt
+      ]);
 
   @override
   bool isValidKey(Object? o) => o is CoursesRecord;

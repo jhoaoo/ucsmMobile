@@ -21,11 +21,6 @@ class SemesterRecord extends FirestoreRecord {
   DocumentReference? get refCarrer => _refCarrer;
   bool hasRefCarrer() => _refCarrer != null;
 
-  // "cycle" field.
-  int? _cycle;
-  int get cycle => _cycle ?? 0;
-  bool hasCycle() => _cycle != null;
-
   // "age" field.
   int? _age;
   int get age => _age ?? 0;
@@ -36,11 +31,22 @@ class SemesterRecord extends FirestoreRecord {
   String get test => _test ?? '';
   bool hasTest() => _test != null;
 
+  // "cycle" field.
+  String? _cycle;
+  String get cycle => _cycle ?? '';
+  bool hasCycle() => _cycle != null;
+
+  // "createdAt" field.
+  DateTime? _createdAt;
+  DateTime? get createdAt => _createdAt;
+  bool hasCreatedAt() => _createdAt != null;
+
   void _initializeFields() {
     _refCarrer = snapshotData['refCarrer'] as DocumentReference?;
-    _cycle = castToType<int>(snapshotData['cycle']);
     _age = castToType<int>(snapshotData['age']);
     _test = snapshotData['test'] as String?;
+    _cycle = snapshotData['cycle'] as String?;
+    _createdAt = snapshotData['createdAt'] as DateTime?;
   }
 
   static CollectionReference get collection =>
@@ -79,16 +85,18 @@ class SemesterRecord extends FirestoreRecord {
 
 Map<String, dynamic> createSemesterRecordData({
   DocumentReference? refCarrer,
-  int? cycle,
   int? age,
   String? test,
+  String? cycle,
+  DateTime? createdAt,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'refCarrer': refCarrer,
-      'cycle': cycle,
       'age': age,
       'test': test,
+      'cycle': cycle,
+      'createdAt': createdAt,
     }.withoutNulls,
   );
 
@@ -101,14 +109,15 @@ class SemesterRecordDocumentEquality implements Equality<SemesterRecord> {
   @override
   bool equals(SemesterRecord? e1, SemesterRecord? e2) {
     return e1?.refCarrer == e2?.refCarrer &&
-        e1?.cycle == e2?.cycle &&
         e1?.age == e2?.age &&
-        e1?.test == e2?.test;
+        e1?.test == e2?.test &&
+        e1?.cycle == e2?.cycle &&
+        e1?.createdAt == e2?.createdAt;
   }
 
   @override
-  int hash(SemesterRecord? e) =>
-      const ListEquality().hash([e?.refCarrer, e?.cycle, e?.age, e?.test]);
+  int hash(SemesterRecord? e) => const ListEquality()
+      .hash([e?.refCarrer, e?.age, e?.test, e?.cycle, e?.createdAt]);
 
   @override
   bool isValidKey(Object? o) => o is SemesterRecord;

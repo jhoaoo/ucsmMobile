@@ -14,9 +14,16 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class MaterialesModel extends FlutterFlowModel<MaterialesWidget> {
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for Expandable widget.
+  late ExpandableController expandableExpandableController;
+
   @override
   void initState(BuildContext context) {}
 
   @override
-  void dispose() {}
+  void dispose() {
+    expandableExpandableController.dispose();
+  }
 }

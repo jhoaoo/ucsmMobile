@@ -1,15 +1,18 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/backend/firebase_storage/storage.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import '/flutter_flow/upload_data.dart';
 import 'dart:ui';
 import '/index.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -174,10 +177,47 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                                 .toList()
                                 .firstOrNull
                                 ?.reference;
+                            _model.semesterRef = null;
                             safeSetState(() {});
                           },
                           width: double.infinity,
                           height: MediaQuery.sizeOf(context).height * 0.05,
+                          searchHintTextStyle:
+                              FlutterFlowTheme.of(context).labelMedium.override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .labelMedium
+                                          .fontStyle,
+                                    ),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .labelMedium
+                                        .fontStyle,
+                                  ),
+                          searchTextStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .fontStyle,
+                                    ),
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .fontStyle,
+                                  ),
                           textStyle:
                               FlutterFlowTheme.of(context).bodyMedium.override(
                                     font: GoogleFonts.inter(
@@ -196,7 +236,8 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                          hintText: 'Selecciona un semestre',
+                          hintText: 'Selecciona tu carrera ',
+                          searchHintText: 'Buscando...',
                           icon: Icon(
                             Icons.keyboard_arrow_down_rounded,
                             color: FlutterFlowTheme.of(context).secondaryText,
@@ -212,7 +253,7 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                               12.0, 0.0, 12.0, 0.0),
                           hidesUnderline: true,
                           isOverButton: false,
-                          isSearchable: false,
+                          isSearchable: true,
                           isMultiSelect: false,
                         ),
                       );
@@ -243,24 +284,26 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                   Container(
                     decoration: BoxDecoration(),
                     child: FlutterFlowDropDown<String>(
-                      controller: _model.semesterValueController ??=
+                      controller: _model.semesterAValueController ??=
                           FormFieldController<String>(null),
                       options: [
-                        '1',
-                        '2',
-                        '3',
-                        '4',
-                        '5',
-                        '6',
-                        '7',
-                        '8',
-                        '9',
-                        '10',
-                        '11',
-                        '12'
+                        'I',
+                        'II',
+                        'III',
+                        'IV',
+                        'V',
+                        'VI',
+                        'VII',
+                        'VIII',
+                        'IX',
+                        'X',
+                        'XI',
+                        'XII',
+                        'XIII',
+                        'XIV'
                       ],
                       onChanged: (val) async {
-                        safeSetState(() => _model.semesterValue = val);
+                        safeSetState(() => _model.semesterAValue = val);
                         _model.semesterfound = await querySemesterRecordOnce(
                           queryBuilder: (semesterRecord) => semesterRecord
                               .where(
@@ -269,12 +312,41 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                               )
                               .where(
                                 'cycle',
-                                isEqualTo: int.parse((_model.semesterValue!)),
+                                isEqualTo: _model.semesterAValue,
                               ),
                           singleRecord: true,
                         ).then((s) => s.firstOrNull);
-                        _model.semesterRef = _model.semesterfound?.reference;
-                        safeSetState(() {});
+                        if (_model.semesterfound != null) {
+                          _model.semesterRef = _model.semesterfound?.reference;
+                          safeSetState(() {});
+                          _model.coursesL = await queryCoursesRecordOnce(
+                            parent: _model.semesterfound?.reference,
+                          );
+                          _model.courses =
+                              _model.coursesL!.toList().cast<CoursesRecord>();
+                          safeSetState(() {});
+                          safeSetState(() {});
+                        } else {
+                          await showDialog(
+                            context: context,
+                            builder: (alertDialogContext) {
+                              return AlertDialog(
+                                title: Text('Lo sentimos '),
+                                content:
+                                    Text('En proceso de ser implementado '),
+                                actions: [
+                                  TextButton(
+                                    onPressed: () =>
+                                        Navigator.pop(alertDialogContext),
+                                    child: Text('Entendido'),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
+                          _model.semesterRef = null;
+                          safeSetState(() {});
+                        }
 
                         safeSetState(() {});
                       },
@@ -317,72 +389,56 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                       isMultiSelect: false,
                     ),
                   ),
-                  Text(
-                    'CURSO',
-                    style: FlutterFlowTheme.of(context).bodyMedium.override(
-                          font: GoogleFonts.inter(
-                            fontWeight: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontWeight,
-                            fontStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .fontStyle,
-                          ),
-                          color: FlutterFlowTheme.of(context).secondaryText,
-                          fontSize: 12.0,
-                          letterSpacing: 0.0,
-                          fontWeight: FlutterFlowTheme.of(context)
+                  if ((_model.semesterRef != null) &&
+                      (_model.careerRef != null))
+                    Column(
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'CURSO',
+                          style: FlutterFlowTheme.of(context)
                               .bodyMedium
-                              .fontWeight,
-                          fontStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                        ),
-                  ),
-                  StreamBuilder<List<CoursesRecord>>(
-                    stream: queryCoursesRecord(
-                      parent: _model.semesterRef,
-                    ),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
+                              .override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                                color:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                fontSize: 12.0,
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .fontStyle,
                               ),
-                            ),
-                          ),
-                        );
-                      }
-                      List<CoursesRecord> containerCoursesRecordList =
-                          snapshot.data!;
-
-                      return Container(
-                        decoration: BoxDecoration(),
-                        child: FlutterFlowDropDown<String>(
-                          controller: _model.courseValueController ??=
-                              FormFieldController<String>(null),
-                          options: containerCoursesRecordList
-                              .map((e) => e.courseName)
-                              .toList(),
-                          onChanged: (val) =>
-                              safeSetState(() => _model.courseValue = val),
-                          width: double.infinity,
-                          height: MediaQuery.sizeOf(context).height * 0.05,
-                          textStyle:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
-                                    font: GoogleFonts.inter(
-                                      fontWeight: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontWeight,
-                                      fontStyle: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .fontStyle,
-                                    ),
-                                    letterSpacing: 0.0,
+                        ),
+                        Container(
+                          decoration: BoxDecoration(),
+                          child: FlutterFlowDropDown<String>(
+                            controller: _model.courseValueController ??=
+                                FormFieldController<String>(null),
+                            options: _model.courses
+                                .map((e) => valueOrDefault<String>(
+                                      e.courseName,
+                                      'a',
+                                    ))
+                                .toList(),
+                            onChanged: (val) =>
+                                safeSetState(() => _model.courseValue = val),
+                            width: double.infinity,
+                            height: MediaQuery.sizeOf(context).height * 0.05,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  font: GoogleFonts.inter(
                                     fontWeight: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontWeight,
@@ -390,28 +446,36 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-                          hintText: 'Selecciona tu curso ',
-                          icon: Icon(
-                            Icons.keyboard_arrow_down_rounded,
-                            color: FlutterFlowTheme.of(context).secondaryText,
-                            size: 24.0,
+                                  letterSpacing: 0.0,
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .fontStyle,
+                                ),
+                            hintText: 'Selecciona tu curso ',
+                            icon: Icon(
+                              Icons.keyboard_arrow_down_rounded,
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              size: 24.0,
+                            ),
+                            fillColor:
+                                FlutterFlowTheme.of(context).primaryBackground,
+                            elevation: 2.0,
+                            borderColor: Color(0xFFDEDEDE),
+                            borderWidth: 0.0,
+                            borderRadius: 8.0,
+                            margin: EdgeInsetsDirectional.fromSTEB(
+                                12.0, 0.0, 12.0, 0.0),
+                            hidesUnderline: true,
+                            isOverButton: false,
+                            isSearchable: false,
+                            isMultiSelect: false,
                           ),
-                          fillColor:
-                              FlutterFlowTheme.of(context).primaryBackground,
-                          elevation: 2.0,
-                          borderColor: Color(0xFFDEDEDE),
-                          borderWidth: 0.0,
-                          borderRadius: 8.0,
-                          margin: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 12.0, 0.0),
-                          hidesUnderline: true,
-                          isOverButton: false,
-                          isSearchable: false,
-                          isMultiSelect: false,
                         ),
-                      );
-                    },
-                  ),
+                      ],
+                    ),
                   Text(
                     'TIPO DE RECURSO',
                     style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -796,6 +860,66 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                       child: TextFormField(
                         controller: _model.ageTextController,
                         focusNode: _model.ageFocusNode,
+                        onFieldSubmitted: (_) async {
+                          final _datePickedDate = await showDatePicker(
+                            context: context,
+                            initialDate: getCurrentTimestamp,
+                            firstDate: getCurrentTimestamp,
+                            lastDate: DateTime(2050),
+                            builder: (context, child) {
+                              return wrapInMaterialDatePickerTheme(
+                                context,
+                                child!,
+                                headerBackgroundColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                headerForegroundColor:
+                                    FlutterFlowTheme.of(context).info,
+                                headerTextStyle: FlutterFlowTheme.of(context)
+                                    .headlineLarge
+                                    .override(
+                                      font: GoogleFonts.interTight(
+                                        fontWeight: FontWeight.w600,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .headlineLarge
+                                            .fontStyle,
+                                      ),
+                                      fontSize: 32.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FontWeight.w600,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .headlineLarge
+                                          .fontStyle,
+                                    ),
+                                pickerBackgroundColor:
+                                    FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                pickerForegroundColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                selectedDateTimeBackgroundColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                selectedDateTimeForegroundColor:
+                                    FlutterFlowTheme.of(context).info,
+                                actionButtonForegroundColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                iconSize: 24.0,
+                              );
+                            },
+                          );
+
+                          if (_datePickedDate != null) {
+                            safeSetState(() {
+                              _model.datePicked = DateTime(
+                                _datePickedDate.year,
+                                _datePickedDate.month,
+                                _datePickedDate.day,
+                              );
+                            });
+                          } else if (_model.datePicked != null) {
+                            safeSetState(() {
+                              _model.datePicked = getCurrentTimestamp;
+                            });
+                          }
+                        },
                         autofocus: true,
                         obscureText: false,
                         decoration: InputDecoration(
@@ -914,6 +1038,7 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                                   .bodyLarge
                                   .fontStyle,
                             ),
+                        keyboardType: TextInputType.datetime,
                         validator: _model.ageTextControllerValidator
                             .asValidator(context),
                       ),
@@ -969,26 +1094,28 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                                       .bodyLarge
                                       .fontStyle,
                                 ),
-                        hintText: 'Ej: Calculo guia ',
-                        hintStyle:
-                            FlutterFlowTheme.of(context).bodyLarge.override(
-                                  font: GoogleFonts.inter(
-                                    fontWeight: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .fontWeight,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyLarge
-                                        .fontStyle,
-                                  ),
-                                  fontSize: 12.0,
-                                  letterSpacing: 0.0,
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .fontWeight,
-                                  fontStyle: FlutterFlowTheme.of(context)
-                                      .bodyLarge
-                                      .fontStyle,
-                                ),
+                        hintText: 'Ej: James Stewart\n',
+                        hintStyle: FlutterFlowTheme.of(context)
+                            .bodyLarge
+                            .override(
+                              font: GoogleFonts.inter(
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontStyle,
+                              ),
+                              color: FlutterFlowTheme.of(context).secondaryText,
+                              fontSize: 12.0,
+                              letterSpacing: 0.0,
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontStyle,
+                            ),
                         errorStyle:
                             FlutterFlowTheme.of(context).bodyLarge.override(
                                   font: GoogleFonts.inter(
@@ -1121,8 +1248,73 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                                   color: FlutterFlowTheme.of(context).primary,
                                   size: 24.0,
                                 ),
-                                onPressed: () {
-                                  print('IconButton pressed ...');
+                                onPressed: () async {
+                                  final selectedFiles = await selectFiles(
+                                    allowedExtensions: ['pdf'],
+                                    multiFile: true,
+                                  );
+                                  if (selectedFiles != null) {
+                                    safeSetState(() => _model
+                                        .isDataUploading_uploadData4vm = true);
+                                    var selectedUploadedFiles =
+                                        <FFUploadedFile>[];
+
+                                    var downloadUrls = <String>[];
+                                    try {
+                                      showUploadMessage(
+                                        context,
+                                        'Uploading file...',
+                                        showLoading: true,
+                                      );
+                                      selectedUploadedFiles = selectedFiles
+                                          .map((m) => FFUploadedFile(
+                                                name: m.storagePath
+                                                    .split('/')
+                                                    .last,
+                                                bytes: m.bytes,
+                                                originalFilename:
+                                                    m.originalFilename,
+                                              ))
+                                          .toList();
+
+                                      downloadUrls = (await Future.wait(
+                                        selectedFiles.map(
+                                          (f) async => await uploadData(
+                                              f.storagePath, f.bytes),
+                                        ),
+                                      ))
+                                          .where((u) => u != null)
+                                          .map((u) => u!)
+                                          .toList();
+                                    } finally {
+                                      ScaffoldMessenger.of(context)
+                                          .hideCurrentSnackBar();
+                                      _model.isDataUploading_uploadData4vm =
+                                          false;
+                                    }
+                                    if (selectedUploadedFiles.length ==
+                                            selectedFiles.length &&
+                                        downloadUrls.length ==
+                                            selectedFiles.length) {
+                                      safeSetState(() {
+                                        _model.uploadedLocalFiles_uploadData4vm =
+                                            selectedUploadedFiles;
+                                        _model.uploadedFileUrls_uploadData4vm =
+                                            downloadUrls;
+                                      });
+                                      showUploadMessage(
+                                        context,
+                                        'Success!',
+                                      );
+                                    } else {
+                                      safeSetState(() {});
+                                      showUploadMessage(
+                                        context,
+                                        'Failed to upload file',
+                                      );
+                                      return;
+                                    }
+                                  }
                                 },
                               ),
                               Text(
@@ -1331,8 +1523,27 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                       ],
                     ),
                   FFButtonWidget(
-                    onPressed: () {
-                      print('Button pressed ...');
+                    onPressed: () async {
+                      await CoursesRecord.createDoc(_model.semesterRef!).set({
+                        ...createCoursesRecordData(
+                          autorName: _model.authorTextController.text,
+                          fileName: _model.recurseTextController.text,
+                          ageDocument: _model.datePicked,
+                          courseName: _model.courseValue,
+                          semester: _model.semesterAValue,
+                          careerName: _model.careerValue,
+                          webRecurse: _model.urlTextController.text,
+                          documentPDF: valueOrDefault<String>(
+                            _model.uploadedFileUrls_uploadData4vm.firstOrNull,
+                            'a',
+                          ),
+                        ),
+                        ...mapToFirestore(
+                          {
+                            'createdAt': FieldValue.serverTimestamp(),
+                          },
+                        ),
+                      });
                     },
                     text: '',
                     icon: Icon(
