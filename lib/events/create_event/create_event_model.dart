@@ -10,6 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class CreateEventModel extends FlutterFlowModel<CreateEventWidget> {
+<<<<<<< HEAD
   ///  Local state fields for this page.
 
   bool isActive = true;
@@ -21,6 +22,13 @@ class CreateEventModel extends FlutterFlowModel<CreateEventWidget> {
   // State field(s) for entrepreneurship widget.
   String? entrepreneurshipValue;
   FormFieldController<String>? entrepreneurshipValueController;
+=======
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for event widget.
+  String? eventValue;
+  FormFieldController<String>? eventValueController;
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
   // State field(s) for tittleEvent widget.
   FocusNode? tittleEventFocusNode;
   TextEditingController? tittleEventTextController;
@@ -30,6 +38,7 @@ class CreateEventModel extends FlutterFlowModel<CreateEventWidget> {
   TextEditingController? descriptionTextController;
   String? Function(BuildContext, String?)? descriptionTextControllerValidator;
   // State field(s) for date widget.
+<<<<<<< HEAD
   FocusNode? dateFocusNode1;
   TextEditingController? dateTextController1;
   String? Function(BuildContext, String?)? dateTextController1Validator;
@@ -37,10 +46,20 @@ class CreateEventModel extends FlutterFlowModel<CreateEventWidget> {
   FocusNode? hourFocusNode1;
   TextEditingController? hourTextController1;
   String? Function(BuildContext, String?)? hourTextController1Validator;
+=======
+  FocusNode? dateFocusNode;
+  TextEditingController? dateTextController;
+  String? Function(BuildContext, String?)? dateTextControllerValidator;
+  // State field(s) for hour widget.
+  FocusNode? hourFocusNode;
+  TextEditingController? hourTextController;
+  String? Function(BuildContext, String?)? hourTextControllerValidator;
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
   // State field(s) for place widget.
   FocusNode? placeFocusNode;
   TextEditingController? placeTextController;
   String? Function(BuildContext, String?)? placeTextControllerValidator;
+<<<<<<< HEAD
   // State field(s) for tittleEntrepreneurship widget.
   FocusNode? tittleEntrepreneurshipFocusNode;
   TextEditingController? tittleEntrepreneurshipTextController;
@@ -82,6 +101,8 @@ class CreateEventModel extends FlutterFlowModel<CreateEventWidget> {
   TextEditingController? payEntrepreneurshipTextController;
   String? Function(BuildContext, String?)?
       payEntrepreneurshipTextControllerValidator;
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 
   @override
   void initState(BuildContext context) {}
@@ -94,6 +115,7 @@ class CreateEventModel extends FlutterFlowModel<CreateEventWidget> {
     descriptionFocusNode?.dispose();
     descriptionTextController?.dispose();
 
+<<<<<<< HEAD
     dateFocusNode1?.dispose();
     dateTextController1?.dispose();
 
@@ -129,5 +151,15 @@ class CreateEventModel extends FlutterFlowModel<CreateEventWidget> {
 
     payEntrepreneurshipFocusNode?.dispose();
     payEntrepreneurshipTextController?.dispose();
+=======
+    dateFocusNode?.dispose();
+    dateTextController?.dispose();
+
+    hourFocusNode?.dispose();
+    hourTextController?.dispose();
+
+    placeFocusNode?.dispose();
+    placeTextController?.dispose();
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
   }
 }

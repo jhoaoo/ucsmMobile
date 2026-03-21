@@ -168,10 +168,14 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                           controller: _model.careerValueController ??=
                               FormFieldController<String>(null),
                           options: containerCareerRecordList
+<<<<<<< HEAD
                               .map((e) => valueOrDefault<String>(
                                     e.name,
                                     'a',
                                   ))
+=======
+                              .map((e) => e.name)
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                               .toList(),
                           onChanged: (val) async {
                             safeSetState(() => _model.careerValue = val);
@@ -328,6 +332,10 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                           _model.courses =
                               _model.coursesL!.toList().cast<CoursesRecord>();
                           safeSetState(() {});
+<<<<<<< HEAD
+=======
+                          safeSetState(() {});
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                         } else {
                           await showDialog(
                             context: context,
@@ -391,6 +399,7 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                       isMultiSelect: false,
                     ),
                   ),
+<<<<<<< HEAD
                   if (valueOrDefault<bool>(
                         _model.semesterRef != null,
                         true,
@@ -399,6 +408,10 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                         _model.careerRef != null,
                         true,
                       ))
+=======
+                  if ((_model.semesterRef != null) &&
+                      (_model.careerRef != null))
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -434,7 +447,10 @@ class _UploadMaterialsWidgetState extends State<UploadMaterialsWidget> {
                             controller: _model.courseValueController ??=
                                 FormFieldController<String>(null),
                             options: _model.courses
+<<<<<<< HEAD
                                 .unique((e) => e.courseName)
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                 .map((e) => valueOrDefault<String>(
                                       e.courseName,
                                       'a',

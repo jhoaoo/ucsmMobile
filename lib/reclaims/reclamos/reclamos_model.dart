@@ -1,13 +1,21 @@
+<<<<<<< HEAD
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/mouse_region_widget.dart';
+=======
+import '/backend/backend.dart';
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
+<<<<<<< HEAD
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'reclamos_widget.dart' show ReclamosWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
+=======
+import 'reclamos_widget.dart' show ReclamosWidget;
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,6 +26,7 @@ class ReclamosModel extends FlutterFlowModel<ReclamosWidget> {
 
   bool isEvent = false;
 
+<<<<<<< HEAD
   String selectCategory = 'Seleccionar...';
 
   ///  State fields for stateful widgets in this page.
@@ -31,16 +40,29 @@ class ReclamosModel extends FlutterFlowModel<ReclamosWidget> {
   TextEditingController? problemDescriptionTextController;
   String? Function(BuildContext, String?)?
       problemDescriptionTextControllerValidator;
+=======
+  ///  State fields for stateful widgets in this page.
+
+  // State field(s) for TextField widget.
+  FocusNode? textFieldFocusNode;
+  TextEditingController? textController;
+  String? Function(BuildContext, String?)? textControllerValidator;
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 
   @override
   void initState(BuildContext context) {}
 
   @override
   void dispose() {
+<<<<<<< HEAD
     selectFocusNode?.dispose();
     selectTextController?.dispose();
 
     problemDescriptionFocusNode?.dispose();
     problemDescriptionTextController?.dispose();
+=======
+    textFieldFocusNode?.dispose();
+    textController?.dispose();
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
   }
 }

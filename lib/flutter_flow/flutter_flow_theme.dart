@@ -61,8 +61,11 @@ abstract class FlutterFlowTheme {
   late Color lightMutedColor;
   late Color darkMutedColor;
 
+<<<<<<< HEAD
   FFDesignTokens get designToken => FFDesignTokens(this);
 
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
   @Deprecated('Use displaySmall instead')
@@ -363,6 +366,7 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color darkMutedColor = const Color(0xFF283038);
 }
 
+<<<<<<< HEAD
 class FFDesignTokens {
   const FFDesignTokens(this.theme);
   final FlutterFlowTheme theme;
@@ -413,6 +417,8 @@ class FFShadows {
       spreadRadius: 0.0);
 }
 
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 extension TextStyleHelper on TextStyle {
   TextStyle override({
     TextStyle? font,

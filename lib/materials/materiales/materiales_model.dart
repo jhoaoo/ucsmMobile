@@ -1,7 +1,10 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
+<<<<<<< HEAD
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -26,9 +29,12 @@ class MaterialesModel extends FlutterFlowModel<MaterialesWidget> {
 
   @override
   void dispose() {}
+<<<<<<< HEAD
 
   /// Action blocks.
   Future expandable(BuildContext context) async {
     await expandable(context);
   }
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 }

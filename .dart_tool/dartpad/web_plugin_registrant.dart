@@ -14,7 +14,10 @@ import 'package:firebase_performance_web/firebase_performance_web.dart';
 import 'package:firebase_storage_web/firebase_storage_web.dart';
 import 'package:google_sign_in_web/google_sign_in_web.dart';
 import 'package:image_picker_for_web/image_picker_for_web.dart';
+<<<<<<< HEAD
 import 'package:pdfx/src/renderer/web/pdfx_plugin.dart';
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 import 'package:shared_preferences_web/shared_preferences_web.dart';
 import 'package:sign_in_with_apple_web/sign_in_with_apple_web.dart';
 import 'package:url_launcher_web/url_launcher_web.dart';
@@ -31,7 +34,10 @@ void registerPlugins([final Registrar? pluginRegistrar]) {
   FirebaseStorageWeb.registerWith(registrar);
   GoogleSignInPlugin.registerWith(registrar);
   ImagePickerPlugin.registerWith(registrar);
+<<<<<<< HEAD
   PdfxPlugin.registerWith(registrar);
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
   SharedPreferencesPlugin.registerWith(registrar);
   SignInWithApplePlugin.registerWith(registrar);
   UrlLauncherPlugin.registerWith(registrar);

@@ -14,9 +14,12 @@ export '/materials/upload_materials/upload_materials_widget.dart'
     show UploadMaterialsWidget;
 export '/profile/configuration/configuration_widget.dart'
     show ConfigurationWidget;
+<<<<<<< HEAD
 export '/menu_f/card_restaurant/card_restaurant_widget.dart'
     show CardRestaurantWidget;
 export '/menu_f/add_menu/add_menu_widget.dart' show AddMenuWidget;
 export '/menu_f/create_restaurant/create_restaurant_widget.dart'
     show CreateRestaurantWidget;
 export '/home_test/home_test_widget.dart' show HomeTestWidget;
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5

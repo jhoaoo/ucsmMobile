@@ -160,9 +160,12 @@ class _ConfigurationWidgetState extends State<ConfigurationWidget> {
                           value: _model.switchValue1!,
                           onChanged: (newValue) async {
                             safeSetState(() => _model.switchValue1 = newValue!);
+<<<<<<< HEAD
                             if (newValue!) {
                               setDarkModeSetting(context, ThemeMode.dark);
                             }
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                           },
                           activeColor:
                               FlutterFlowTheme.of(context).primaryBackground,

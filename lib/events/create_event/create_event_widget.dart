@@ -36,15 +36,24 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
     _model.descriptionTextController ??= TextEditingController();
     _model.descriptionFocusNode ??= FocusNode();
 
+<<<<<<< HEAD
     _model.dateTextController1 ??= TextEditingController();
     _model.dateFocusNode1 ??= FocusNode();
 
     _model.hourTextController1 ??= TextEditingController();
     _model.hourFocusNode1 ??= FocusNode();
+=======
+    _model.dateTextController ??= TextEditingController();
+    _model.dateFocusNode ??= FocusNode();
+
+    _model.hourTextController ??= TextEditingController();
+    _model.hourFocusNode ??= FocusNode();
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 
     _model.placeTextController ??= TextEditingController();
     _model.placeFocusNode ??= FocusNode();
 
+<<<<<<< HEAD
     _model.tittleEntrepreneurshipTextController ??= TextEditingController();
     _model.tittleEntrepreneurshipFocusNode ??= FocusNode();
 
@@ -73,6 +82,8 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
     _model.payEntrepreneurshipTextController ??= TextEditingController();
     _model.payEntrepreneurshipFocusNode ??= FocusNode();
 
+=======
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
 
@@ -97,6 +108,7 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
           top: true,
           child: Padding(
             padding: EdgeInsets.all(8.0),
+<<<<<<< HEAD
             child: SingleChildScrollView(
               child: Column(
                 mainAxisSize: MainAxisSize.max,
@@ -120,6 +132,20 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                               color: FlutterFlowTheme.of(context).secondaryText,
                               fontSize: 12.0,
                               letterSpacing: 0.0,
+=======
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'CREAR EVENTO ',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                               fontWeight: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .fontWeight,
@@ -127,6 +153,7 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                                   .bodyMedium
                                   .fontStyle,
                             ),
+<<<<<<< HEAD
                       ),
                       InkWell(
                         splashColor: Colors.transparent,
@@ -154,6 +181,11 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                     height: MediaQuery.sizeOf(context).height * 0.05,
                     textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
                           font: GoogleFonts.inter(
+=======
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                             fontWeight: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .fontWeight,
@@ -161,13 +193,44 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                                 .bodyMedium
                                 .fontStyle,
                           ),
+<<<<<<< HEAD
                           letterSpacing: 0.0,
+=======
+                    ),
+                    InkWell(
+                      splashColor: Colors.transparent,
+                      focusColor: Colors.transparent,
+                      hoverColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () async {
+                        context.safePop();
+                      },
+                      child: Icon(
+                        Icons.close_rounded,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 24.0,
+                      ),
+                    ),
+                  ],
+                ),
+                FlutterFlowDropDown<String>(
+                  controller: _model.eventValueController ??=
+                      FormFieldController<String>(null),
+                  options: ['Evento ', 'Emprendimiento'],
+                  onChanged: (val) =>
+                      safeSetState(() => _model.eventValue = val),
+                  width: double.infinity,
+                  height: MediaQuery.sizeOf(context).height * 0.05,
+                  textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
+                        font: GoogleFonts.inter(
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                           fontWeight: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .fontWeight,
                           fontStyle:
                               FlutterFlowTheme.of(context).bodyMedium.fontStyle,
                         ),
+<<<<<<< HEAD
                     hintText: 'Seleccionar',
                     icon: Icon(
                       Icons.keyboard_arrow_down_rounded,
@@ -190,11 +253,315 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                     _model.entrepreneurshipValue == 'Evento',
                     true,
                   ))
+=======
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
+                  hintText: 'Tipo',
+                  icon: Icon(
+                    Icons.keyboard_arrow_down_rounded,
+                    color: FlutterFlowTheme.of(context).secondaryText,
+                    size: 24.0,
+                  ),
+                  fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                  elevation: 2.0,
+                  borderColor: Color(0xFFDEDEDE),
+                  borderWidth: 0.0,
+                  borderRadius: 8.0,
+                  margin: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
+                  hidesUnderline: true,
+                  isOverButton: false,
+                  isSearchable: false,
+                  isMultiSelect: false,
+                ),
+                Text(
+                  'TITULO',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        fontSize: 12.0,
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
+                ),
+                TextFormField(
+                  controller: _model.tittleEventTextController,
+                  focusNode: _model.tittleEventFocusNode,
+                  autofocus: true,
+                  obscureText: false,
+                  decoration: InputDecoration(
+                    isDense: false,
+                    labelStyle: FlutterFlowTheme.of(context).bodyLarge.override(
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          fontSize: 12.0,
+                          letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                        ),
+                    hintText: 'Nombre del evento ',
+                    hintStyle: FlutterFlowTheme.of(context).bodyLarge.override(
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                          color: FlutterFlowTheme.of(context).secondaryText,
+                          fontSize: 12.0,
+                          letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                        ),
+                    errorStyle: FlutterFlowTheme.of(context).bodyLarge.override(
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                          color: FlutterFlowTheme.of(context).error,
+                          letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                        ),
+                    enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).alternate,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).primary,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    errorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    focusedErrorBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        color: FlutterFlowTheme.of(context).error,
+                        width: 2.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    filled: true,
+                    fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                    contentPadding: EdgeInsets.all(8.0),
+                    hoverColor:
+                        FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  style: FlutterFlowTheme.of(context).bodyLarge.override(
+                        font: GoogleFonts.inter(
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                        ),
+                        fontSize: 12.0,
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                      ),
+                  validator: _model.tittleEventTextControllerValidator
+                      .asValidator(context),
+                ),
+                Text(
+                  'DESCRIPCIÓN',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        fontSize: 12.0,
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
+                ),
+                Container(
+                  width: double.infinity,
+                  child: TextFormField(
+                    controller: _model.descriptionTextController,
+                    focusNode: _model.descriptionFocusNode,
+                    autofocus: true,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      isDense: false,
+                      labelStyle: FlutterFlowTheme.of(context)
+                          .bodyLarge
+                          .override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                      hintText: 'Describe el evento...',
+                      hintStyle: FlutterFlowTheme.of(context)
+                          .bodyLarge
+                          .override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                      errorStyle:
+                          FlutterFlowTheme.of(context).bodyLarge.override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).error,
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontStyle,
+                              ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      filled: true,
+                      fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                      contentPadding: EdgeInsets.all(8.0),
+                      hoverColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyLarge.override(
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                          fontSize: 12.0,
+                          letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                        ),
+                    maxLines: 5,
+                    maxLength: 200,
+                    validator: _model.descriptionTextControllerValidator
+                        .asValidator(context),
+                  ),
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
+<<<<<<< HEAD
                           'TITULO',
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
@@ -347,6 +714,10 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                         ),
                         Text(
                           'DESCRIPCIÓN',
+=======
+                          'FECHA',
+                          textAlign: TextAlign.start,
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -371,6 +742,7 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                               ),
                         ),
                         Container(
+<<<<<<< HEAD
                           width: double.infinity,
                           child: TextFormField(
                             controller: _model.descriptionTextController,
@@ -949,6 +1321,22 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                             isDense: false,
                             labelStyle:
                                 FlutterFlowTheme.of(context).bodyLarge.override(
+=======
+                          width: MediaQuery.sizeOf(context).width * 0.45,
+                          child: Container(
+                            height: MediaQuery.sizeOf(context).height * 0.05,
+                            decoration: BoxDecoration(),
+                            child: TextFormField(
+                              controller: _model.dateTextController,
+                              focusNode: _model.dateFocusNode,
+                              autofocus: true,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                isDense: false,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                       font: GoogleFonts.inter(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyLarge
@@ -968,9 +1356,16 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                                           .bodyLarge
                                           .fontStyle,
                                     ),
+<<<<<<< HEAD
                             hintText: 'Lugar del evento',
                             hintStyle:
                                 FlutterFlowTheme.of(context).bodyLarge.override(
+=======
+                                hintText: 'DD/MM/AAAA',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                       font: GoogleFonts.inter(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyLarge
@@ -990,8 +1385,14 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                                           .bodyLarge
                                           .fontStyle,
                                     ),
+<<<<<<< HEAD
                             errorStyle:
                                 FlutterFlowTheme.of(context).bodyLarge.override(
+=======
+                                errorStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                       font: GoogleFonts.inter(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyLarge
@@ -1001,6 +1402,10 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                                             .fontStyle,
                                       ),
                                       color: FlutterFlowTheme.of(context).error,
+<<<<<<< HEAD
+=======
+                                      fontSize: 16.0,
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyLarge
@@ -1009,6 +1414,7 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                                           .bodyLarge
                                           .fontStyle,
                                     ),
+<<<<<<< HEAD
                             enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: FlutterFlowTheme.of(context).alternate,
@@ -1046,6 +1452,47 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyLarge.override(
+=======
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                contentPadding: EdgeInsets.all(8.0),
+                                hoverColor: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .override(
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                     font: GoogleFonts.inter(
                                       fontWeight: FlutterFlowTheme.of(context)
                                           .bodyLarge
@@ -1063,6 +1510,7 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                                         .bodyLarge
                                         .fontStyle,
                                   ),
+<<<<<<< HEAD
                           validator: _model.placeTextControllerValidator
                               .asValidator(context),
                         ),
@@ -1108,11 +1556,21 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                     _model.entrepreneurshipValue == 'Emprendimiento',
                     true,
                   ))
+=======
+                              validator: _model.dateTextControllerValidator
+                                  .asValidator(context),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                     Column(
                       mainAxisSize: MainAxisSize.max,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
+<<<<<<< HEAD
                           'TITULO',
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
@@ -1267,6 +1725,9 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                         ),
                         Text(
                           'DESCRIPCIÓN',
+=======
+                          'HORA',
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
@@ -1291,6 +1752,7 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                               ),
                         ),
                         Container(
+<<<<<<< HEAD
                           width: double.infinity,
                           child: TextFormField(
                             controller: _model
@@ -1403,6 +1865,22 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                             ),
                             style:
                                 FlutterFlowTheme.of(context).bodyLarge.override(
+=======
+                          width: MediaQuery.sizeOf(context).width * 0.45,
+                          child: Container(
+                            height: MediaQuery.sizeOf(context).height * 0.05,
+                            decoration: BoxDecoration(),
+                            child: TextFormField(
+                              controller: _model.hourTextController,
+                              focusNode: _model.hourFocusNode,
+                              autofocus: true,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                isDense: false,
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                       font: GoogleFonts.inter(
                                         fontWeight: FlutterFlowTheme.of(context)
                                             .bodyLarge
@@ -1411,6 +1889,11 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                                             .bodyLarge
                                             .fontStyle,
                                       ),
+<<<<<<< HEAD
+=======
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
@@ -1420,6 +1903,7 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                                           .bodyLarge
                                           .fontStyle,
                                     ),
+<<<<<<< HEAD
                             maxLines: 5,
                             maxLength: 200,
                             validator: _model
@@ -2838,6 +3322,292 @@ class _CreateEventWidgetState extends State<CreateEventWidget> {
                     ),
                 ].divide(SizedBox(height: 8.0)).around(SizedBox(height: 8.0)),
               ),
+=======
+                                hintText: '--:--',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      fontSize: 12.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
+                                    ),
+                                errorStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .override(
+                                      font: GoogleFonts.inter(
+                                        fontWeight: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontWeight,
+                                        fontStyle: FlutterFlowTheme.of(context)
+                                            .bodyLarge
+                                            .fontStyle,
+                                      ),
+                                      color: FlutterFlowTheme.of(context).error,
+                                      fontSize: 16.0,
+                                      letterSpacing: 0.0,
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color:
+                                        FlutterFlowTheme.of(context).alternate,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context).error,
+                                    width: 2.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8.0),
+                                ),
+                                filled: true,
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                contentPadding: EdgeInsets.all(8.0),
+                                hoverColor: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .override(
+                                    font: GoogleFonts.inter(
+                                      fontWeight: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontWeight,
+                                      fontStyle: FlutterFlowTheme.of(context)
+                                          .bodyLarge
+                                          .fontStyle,
+                                    ),
+                                    fontSize: 12.0,
+                                    letterSpacing: 0.0,
+                                    fontWeight: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .fontWeight,
+                                    fontStyle: FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .fontStyle,
+                                  ),
+                              validator: _model.hourTextControllerValidator
+                                  .asValidator(context),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ].divide(SizedBox(width: 8.0)),
+                ),
+                Text(
+                  'UBICACIÓN',
+                  style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .bodyMedium
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                        ),
+                        color: FlutterFlowTheme.of(context).secondaryText,
+                        fontSize: 12.0,
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
+                ),
+                Container(
+                  height: MediaQuery.sizeOf(context).height * 0.05,
+                  decoration: BoxDecoration(),
+                  child: TextFormField(
+                    controller: _model.placeTextController,
+                    focusNode: _model.placeFocusNode,
+                    autofocus: true,
+                    obscureText: false,
+                    decoration: InputDecoration(
+                      isDense: false,
+                      labelStyle: FlutterFlowTheme.of(context)
+                          .bodyLarge
+                          .override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                      hintText: 'Lugar del evento',
+                      hintStyle: FlutterFlowTheme.of(context)
+                          .bodyLarge
+                          .override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontWeight,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context).secondaryText,
+                            fontSize: 12.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                      errorStyle:
+                          FlutterFlowTheme.of(context).bodyLarge.override(
+                                font: GoogleFonts.inter(
+                                  fontWeight: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .fontWeight,
+                                  fontStyle: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .fontStyle,
+                                ),
+                                color: FlutterFlowTheme.of(context).error,
+                                letterSpacing: 0.0,
+                                fontWeight: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontWeight,
+                                fontStyle: FlutterFlowTheme.of(context)
+                                    .bodyLarge
+                                    .fontStyle,
+                              ),
+                      enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).alternate,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).primary,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      errorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      focusedErrorBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: FlutterFlowTheme.of(context).error,
+                          width: 2.0,
+                        ),
+                        borderRadius: BorderRadius.circular(8.0),
+                      ),
+                      filled: true,
+                      fillColor: FlutterFlowTheme.of(context).primaryBackground,
+                      contentPadding: EdgeInsets.all(8.0),
+                      hoverColor:
+                          FlutterFlowTheme.of(context).secondaryBackground,
+                    ),
+                    style: FlutterFlowTheme.of(context).bodyLarge.override(
+                          font: GoogleFonts.inter(
+                            fontWeight: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontWeight,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyLarge
+                                .fontStyle,
+                          ),
+                          fontSize: 12.0,
+                          letterSpacing: 0.0,
+                          fontWeight:
+                              FlutterFlowTheme.of(context).bodyLarge.fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).bodyLarge.fontStyle,
+                        ),
+                    validator: _model.placeTextControllerValidator
+                        .asValidator(context),
+                  ),
+                ),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).primary,
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  alignment: AlignmentDirectional(0.0, -1.0),
+                  child: Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 8.0, 0.0, 8.0),
+                    child: Text(
+                      'Crear evento ',
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            font: GoogleFonts.inter(
+                              fontWeight: FontWeight.w500,
+                              fontStyle: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .fontStyle,
+                            ),
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w500,
+                            fontStyle: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .fontStyle,
+                          ),
+                    ),
+                  ),
+                ),
+              ].divide(SizedBox(height: 8.0)).around(SizedBox(height: 8.0)),
+>>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
             ),
           ),
         ),
