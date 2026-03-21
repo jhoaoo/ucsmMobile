@@ -83,39 +83,29 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       refreshListenable: appStateNotifier,
       navigatorKey: appNavigatorKey,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? NavBarPage() : AuthUcsmWidget(),
+          appStateNotifier.loggedIn ? HomePagWidget() : AuthUcsmWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) =>
-              appStateNotifier.loggedIn ? NavBarPage() : AuthUcsmWidget(),
+              appStateNotifier.loggedIn ? HomePagWidget() : AuthUcsmWidget(),
         ),
         FFRoute(
           name: HomePagWidget.routeName,
           path: HomePagWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'home_pag')
-              : HomePagWidget(),
+          builder: (context, params) => HomePagWidget(),
         ),
         FFRoute(
-            name: MaterialesWidget.routeName,
-            path: MaterialesWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'materiales')
-                : NavBarPage(
-                    initialPage: 'materiales',
-                    page: MaterialesWidget(),
-                  )),
+          name: MaterialesWidget.routeName,
+          path: MaterialesWidget.routePath,
+          builder: (context, params) => MaterialesWidget(),
+        ),
         FFRoute(
-            name: ReclamosWidget.routeName,
-            path: ReclamosWidget.routePath,
-            builder: (context, params) => params.isEmpty
-                ? NavBarPage(initialPage: 'reclamos')
-                : NavBarPage(
-                    initialPage: 'reclamos',
-                    page: ReclamosWidget(),
-                  )),
+          name: ReclamosWidget.routeName,
+          path: ReclamosWidget.routePath,
+          builder: (context, params) => ReclamosWidget(),
+        ),
         FFRoute(
           name: AuthUcsmWidget.routeName,
           path: AuthUcsmWidget.routePath,
@@ -124,9 +114,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: ProfileWidget.routeName,
           path: ProfileWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'profile')
-              : ProfileWidget(),
+          builder: (context, params) => ProfileWidget(),
         ),
         FFRoute(
           name: ProfileEditWidget.routeName,
@@ -141,9 +129,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
         FFRoute(
           name: UserEventsWidget.routeName,
           path: UserEventsWidget.routePath,
-          builder: (context, params) => params.isEmpty
-              ? NavBarPage(initialPage: 'user_events')
-              : UserEventsWidget(),
+          builder: (context, params) => UserEventsWidget(),
         ),
         FFRoute(
           name: QuickAccessWidget.routeName,

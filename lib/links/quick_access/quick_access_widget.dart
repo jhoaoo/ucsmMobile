@@ -1,9 +1,9 @@
 import '/backend/backend.dart';
+import '/components/drawer_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-import '/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,6 +54,17 @@ class _QuickAccessWidgetState extends State<QuickAccessWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        drawer: Container(
+          width: MediaQuery.sizeOf(context).width * 0.8,
+          child: Drawer(
+            elevation: 16.0,
+            child: wrapWithModel(
+              model: _model.drawerModel,
+              updateCallback: () => safeSetState(() {}),
+              child: DrawerWidget(),
+            ),
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Column(
@@ -71,10 +82,10 @@ class _QuickAccessWidgetState extends State<QuickAccessWidget> {
                       hoverColor: Colors.transparent,
                       highlightColor: Colors.transparent,
                       onTap: () async {
-                        context.pushNamed(HomePagWidget.routeName);
+                        scaffoldKey.currentState!.openDrawer();
                       },
                       child: Icon(
-                        Icons.arrow_back_outlined,
+                        Icons.dehaze,
                         color: FlutterFlowTheme.of(context).primaryText,
                         size: 24.0,
                       ),

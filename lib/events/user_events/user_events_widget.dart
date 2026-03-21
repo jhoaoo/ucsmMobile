@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/drawer_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -80,6 +81,17 @@ class _UserEventsWidgetState extends State<UserEventsWidget> {
           child: Scaffold(
             key: scaffoldKey,
             backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            drawer: Container(
+              width: MediaQuery.sizeOf(context).width * 0.8,
+              child: Drawer(
+                elevation: 16.0,
+                child: wrapWithModel(
+                  model: _model.drawerModel,
+                  updateCallback: () => safeSetState(() {}),
+                  child: DrawerWidget(),
+                ),
+              ),
+            ),
             body: SafeArea(
               top: true,
               child: SingleChildScrollView(
@@ -101,6 +113,21 @@ class _UserEventsWidgetState extends State<UserEventsWidget> {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
+                            InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                scaffoldKey.currentState!.openDrawer();
+                              },
+                              child: Icon(
+                                Icons.dehaze,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                size: 30.0,
+                              ),
+                            ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 0.0, 0.0, 8.0),
@@ -122,7 +149,7 @@ class _UserEventsWidgetState extends State<UserEventsWidget> {
                                           ),
                                           color: FlutterFlowTheme.of(context)
                                               .secondaryBackground,
-                                          fontSize: 24.0,
+                                          fontSize: 18.0,
                                           letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                           fontStyle:
@@ -163,6 +190,7 @@ class _UserEventsWidgetState extends State<UserEventsWidget> {
                               ),
                             ),
                           ]
+                              .divide(SizedBox(width: 8.0))
                               .addToStart(SizedBox(width: 8.0))
                               .addToEnd(SizedBox(width: 8.0)),
                         ),

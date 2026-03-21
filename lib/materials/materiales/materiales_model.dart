@@ -1,4 +1,5 @@
 import '/backend/backend.dart';
+import '/components/drawer_widget.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
@@ -20,12 +21,18 @@ class MaterialesModel extends FlutterFlowModel<MaterialesWidget> {
   // State field(s) for searchC widget.
   String? searchCValue;
   FormFieldController<String>? searchCValueController;
+  // Model for drawer component.
+  late DrawerModel drawerModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    drawerModel = createModel(context, () => DrawerModel());
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    drawerModel.dispose();
+  }
 
   /// Action blocks.
   Future expandable(BuildContext context) async {

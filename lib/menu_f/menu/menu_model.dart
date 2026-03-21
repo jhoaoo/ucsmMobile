@@ -1,3 +1,4 @@
+import '/components/drawer_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -12,9 +13,18 @@ import 'package:material_palette/material_palette.dart';
 import 'package:provider/provider.dart';
 
 class MenuModel extends FlutterFlowModel<MenuWidget> {
-  @override
-  void initState(BuildContext context) {}
+  ///  State fields for stateful widgets in this page.
+
+  // Model for drawer component.
+  late DrawerModel drawerModel;
 
   @override
-  void dispose() {}
+  void initState(BuildContext context) {
+    drawerModel = createModel(context, () => DrawerModel());
+  }
+
+  @override
+  void dispose() {
+    drawerModel.dispose();
+  }
 }

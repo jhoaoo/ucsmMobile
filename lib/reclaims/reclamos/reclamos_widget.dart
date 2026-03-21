@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/drawer_widget.dart';
 import '/components/mouse_region_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -60,6 +61,17 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        drawer: Container(
+          width: MediaQuery.sizeOf(context).width * 0.8,
+          child: Drawer(
+            elevation: 16.0,
+            child: wrapWithModel(
+              model: _model.drawerModel,
+              updateCallback: () => safeSetState(() {}),
+              child: DrawerWidget(),
+            ),
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Padding(
@@ -75,6 +87,20 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            scaffoldKey.currentState!.openDrawer();
+                          },
+                          child: Icon(
+                            Icons.dehaze,
+                            color: FlutterFlowTheme.of(context).primaryText,
+                            size: 24.0,
+                          ),
+                        ),
                         Text(
                           'Buzón de quejas ',
                           style:
@@ -86,7 +112,7 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                                           .fontStyle,
                                     ),
                                     color: FlutterFlowTheme.of(context).primary,
-                                    fontSize: 28.0,
+                                    fontSize: 20.0,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                     fontStyle: FlutterFlowTheme.of(context)
@@ -94,7 +120,7 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                                         .fontStyle,
                                   ),
                         ),
-                      ],
+                      ].divide(SizedBox(width: 8.0)),
                     ),
                   ),
                   Column(

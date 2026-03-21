@@ -1,3 +1,4 @@
+import '/components/drawer_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -52,6 +53,17 @@ class _MenuWidgetState extends State<MenuWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        drawer: Container(
+          width: MediaQuery.sizeOf(context).width * 0.8,
+          child: Drawer(
+            elevation: 16.0,
+            child: wrapWithModel(
+              model: _model.drawerModel,
+              updateCallback: () => safeSetState(() {}),
+              child: DrawerWidget(),
+            ),
+          ),
+        ),
         body: SafeArea(
           top: true,
           child: Column(
@@ -65,86 +77,108 @@ class _MenuWidgetState extends State<MenuWidget> {
                 child: Column(
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Stack(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      children: [
-                        Opacity(
-                          opacity: 0.5,
-                          child: Container(
-                            width: double.infinity,
-                            height: MediaQuery.sizeOf(context).height * 0.3,
-                            decoration: BoxDecoration(
-                              color: Color(0xFF161515),
-                              image: DecorationImage(
-                                fit: BoxFit.cover,
-                                image: Image.network(
-                                  'https://images.unsplash.com/photo-1557499305-bd68d0ad468d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw4fHxtZW51fGVufDB8fHx8MTc3NDAxOTMwOHww&ixlib=rb-4.1.0&q=80&w=1080',
-                                ).image,
-                              ),
-                              borderRadius: BorderRadius.only(
-                                bottomLeft: Radius.circular(8.0),
-                                bottomRight: Radius.circular(8.0),
-                                topLeft: Radius.circular(0.0),
-                                topRight: Radius.circular(0.0),
+                    Container(
+                      height: MediaQuery.sizeOf(context).height * 0.3,
+                      child: Stack(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        children: [
+                          Opacity(
+                            opacity: 0.5,
+                            child: Container(
+                              width: double.infinity,
+                              height: MediaQuery.sizeOf(context).height * 0.3,
+                              decoration: BoxDecoration(
+                                color: Color(0xFF161515),
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: Image.network(
+                                    'https://images.unsplash.com/photo-1557499305-bd68d0ad468d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTYyMDF8MHwxfHNlYXJjaHw4fHxtZW51fGVufDB8fHx8MTc3NDAxOTMwOHww&ixlib=rb-4.1.0&q=80&w=1080',
+                                  ).image,
+                                ),
+                                borderRadius: BorderRadius.only(
+                                  bottomLeft: Radius.circular(8.0),
+                                  bottomRight: Radius.circular(8.0),
+                                  topLeft: Radius.circular(0.0),
+                                  topRight: Radius.circular(0.0),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(-0.17, -0.64),
-                          child: RichText(
-                            textScaler: MediaQuery.of(context).textScaler,
-                            text: TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: 'Carta del Día',
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        font: GoogleFonts.inter(
+                          Align(
+                            alignment: AlignmentDirectional(-0.02, 0.16),
+                            child: RichText(
+                              textScaler: MediaQuery.of(context).textScaler,
+                              text: TextSpan(
+                                children: [
+                                  TextSpan(
+                                    text: 'Carta del Día',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          font: GoogleFonts.inter(
+                                            fontWeight: FontWeight.w600,
+                                            fontStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .bodyMedium
+                                                    .fontStyle,
+                                          ),
+                                          color: Colors.white,
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
                                           fontWeight: FontWeight.w600,
                                           fontStyle:
                                               FlutterFlowTheme.of(context)
                                                   .bodyMedium
                                                   .fontStyle,
                                         ),
-                                        color: Colors.white,
-                                        fontSize: 24.0,
-                                        letterSpacing: 0.0,
+                                  ),
+                                  TextSpan(
+                                    text:
+                                        '\nDescubre los mejores restaurantes y sus \nmenus de hoy',
+                                    style: TextStyle(),
+                                  )
+                                ],
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      font: GoogleFonts.inter(
                                         fontWeight: FontWeight.w600,
                                         fontStyle: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .fontStyle,
                                       ),
-                                ),
-                                TextSpan(
-                                  text:
-                                      '\nDescubre los mejores restaurantes y sus \nmenus de hoy',
-                                  style: TextStyle(),
-                                )
-                              ],
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    font: GoogleFonts.inter(
+                                      color: Colors.white,
+                                      fontSize: 14.0,
+                                      letterSpacing: 0.0,
                                       fontWeight: FontWeight.w600,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-                                    color: Colors.white,
-                                    fontSize: 14.0,
-                                    letterSpacing: 0.0,
-                                    fontWeight: FontWeight.w600,
-                                    fontStyle: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .fontStyle,
-                                  ),
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
                           ),
-                        ),
-                      ],
+                          Align(
+                            alignment: AlignmentDirectional(-0.93, -0.85),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                scaffoldKey.currentState!.openDrawer();
+                              },
+                              child: Icon(
+                                Icons.dehaze,
+                                color: FlutterFlowTheme.of(context)
+                                    .primaryBackground,
+                                size: 30.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),

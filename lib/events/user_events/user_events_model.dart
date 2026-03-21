@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/drawer_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -29,10 +30,16 @@ class UserEventsModel extends FlutterFlowModel<UserEventsWidget> {
   EventsRecord? eventos;
   // Stores action output result for [Firestore Query - Query a collection] action in Row widget.
   EventsRecord? evento;
+  // Model for drawer component.
+  late DrawerModel drawerModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    drawerModel = createModel(context, () => DrawerModel());
+  }
 
   @override
-  void dispose() {}
+  void dispose() {
+    drawerModel.dispose();
+  }
 }

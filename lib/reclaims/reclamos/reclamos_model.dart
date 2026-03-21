@@ -1,5 +1,6 @@
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
+import '/components/drawer_widget.dart';
 import '/components/mouse_region_widget.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -31,9 +32,13 @@ class ReclamosModel extends FlutterFlowModel<ReclamosWidget> {
   TextEditingController? problemDescriptionTextController;
   String? Function(BuildContext, String?)?
       problemDescriptionTextControllerValidator;
+  // Model for drawer component.
+  late DrawerModel drawerModel;
 
   @override
-  void initState(BuildContext context) {}
+  void initState(BuildContext context) {
+    drawerModel = createModel(context, () => DrawerModel());
+  }
 
   @override
   void dispose() {
@@ -42,5 +47,7 @@ class ReclamosModel extends FlutterFlowModel<ReclamosWidget> {
 
     problemDescriptionFocusNode?.dispose();
     problemDescriptionTextController?.dispose();
+
+    drawerModel.dispose();
   }
 }
