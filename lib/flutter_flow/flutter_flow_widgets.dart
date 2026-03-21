@@ -363,7 +363,6 @@ class _FFFocusIndicatorState extends State<FFFocusIndicator> {
 
   void _onFocusChange() {
     if (mounted) {
-<<<<<<< HEAD
       if (_focusNode.hasFocus) {
         // Flutter's FocusTraversalPolicy uses keepVisibleAtEnd for all forward
         // traversal — including wrap-around (last → first). keepVisibleAtEnd
@@ -381,8 +380,6 @@ class _FFFocusIndicatorState extends State<FFFocusIndicator> {
           }
         });
       }
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
       setState(() {
         _hasFocus = _focusNode.hasFocus;
       });

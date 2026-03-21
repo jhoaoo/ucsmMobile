@@ -1,19 +1,12 @@
-<<<<<<< HEAD
 import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/components/mouse_region_widget.dart';
-=======
-import '/backend/backend.dart';
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-<<<<<<< HEAD
 import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:cloud_firestore/cloud_firestore.dart';
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -41,16 +34,11 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
     super.initState();
     _model = createModel(context, () => ReclamosModel());
 
-<<<<<<< HEAD
     _model.selectTextController ??= TextEditingController(text: 'I');
     _model.selectFocusNode ??= FocusNode();
 
     _model.problemDescriptionTextController ??= TextEditingController();
     _model.problemDescriptionFocusNode ??= FocusNode();
-=======
-    _model.textController ??= TextEditingController();
-    _model.textFieldFocusNode ??= FocusNode();
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 
     WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
   }
@@ -297,17 +285,11 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       Container(
-<<<<<<< HEAD
-=======
-                        width: double.infinity,
-                        height: MediaQuery.sizeOf(context).height * 0.2,
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-<<<<<<< HEAD
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
                           children: [
@@ -325,10 +307,6 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                     ]
                         .addToStart(SizedBox(height: 8.0))
                         .addToEnd(SizedBox(height: 8.0)),
-=======
-                      ),
-                    ],
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                   ),
                   Column(
                     mainAxisSize: MainAxisSize.max,
@@ -452,11 +430,7 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                                           child: Padding(
                                             padding: EdgeInsets.all(8.0),
                                             child: Text(
-<<<<<<< HEAD
                                               _model.selectCategory,
-=======
-                                              'Seleccionar...',
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -509,7 +483,6 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                                                 final containerVarItem =
                                                     containerVar[
                                                         containerVarIndex];
-<<<<<<< HEAD
                                                 return MouseRegionWidget(
                                                   key: Key(
                                                       'Keymhw_${containerVarIndex}_of_${containerVar.length}'),
@@ -523,68 +496,11 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                                                     _model.isEvent = false;
                                                     safeSetState(() {});
                                                   },
-=======
-                                                return Container(
-                                                  width: double.infinity,
-                                                  height:
-                                                      MediaQuery.sizeOf(context)
-                                                              .height *
-                                                          0.05,
-                                                  decoration: BoxDecoration(
-                                                    color: FlutterFlowTheme.of(
-                                                            context)
-                                                        .primaryBackground,
-                                                    border: Border.all(
-                                                      color: Color(0xFFDEDEDE),
-                                                    ),
-                                                  ),
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsets.all(8.0),
-                                                    child: Text(
-                                                      containerVarItem
-                                                          .categoryReport,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                font:
-                                                                    GoogleFonts
-                                                                        .inter(
-                                                                  fontWeight: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontWeight,
-                                                                  fontStyle: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyMedium
-                                                                      .fontStyle,
-                                                                ),
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .secondaryText,
-                                                                fontSize: 12.0,
-                                                                letterSpacing:
-                                                                    0.0,
-                                                                fontWeight: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontWeight,
-                                                                fontStyle: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyMedium
-                                                                    .fontStyle,
-                                                              ),
-                                                    ),
-                                                  ),
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                                 );
                                               }),
                                             );
                                           },
                                         ),
-<<<<<<< HEAD
                                       if (valueOrDefault<bool>(
                                         _model.selectCategory == 'Otros',
                                         false,
@@ -730,8 +646,6 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                                               .selectTextControllerValidator
                                               .asValidator(context),
                                         ),
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                     ],
                                   ),
                                   Text(
@@ -766,15 +680,10 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                                   Container(
                                     width: double.infinity,
                                     child: TextFormField(
-<<<<<<< HEAD
                                       controller: _model
                                           .problemDescriptionTextController,
                                       focusNode:
                                           _model.problemDescriptionFocusNode,
-=======
-                                      controller: _model.textController,
-                                      focusNode: _model.textFieldFocusNode,
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                       autofocus: false,
                                       enabled: true,
                                       obscureText: false,
@@ -896,17 +805,12 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                                       cursorColor: FlutterFlowTheme.of(context)
                                           .primaryText,
                                       enableInteractiveSelection: true,
-<<<<<<< HEAD
                                       validator: _model
                                           .problemDescriptionTextControllerValidator
-=======
-                                      validator: _model.textControllerValidator
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                           .asValidator(context),
                                     ),
                                   ),
                                   FFButtonWidget(
-<<<<<<< HEAD
                                     onPressed: () async {
                                       await ReportsRecord.collection
                                           .doc()
@@ -920,10 +824,6 @@ class _ReclamosWidgetState extends State<ReclamosWidget> {
                                                 .problemDescriptionTextController
                                                 .text,
                                           ));
-=======
-                                    onPressed: () {
-                                      print('Button pressed ...');
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                     },
                                     text: 'Enviar reporte ',
                                     icon: Icon(

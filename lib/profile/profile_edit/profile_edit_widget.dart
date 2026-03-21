@@ -353,11 +353,8 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget> {
                                             .bodyLarge
                                             .fontStyle,
                                       ),
-<<<<<<< HEAD
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)
@@ -526,11 +523,8 @@ class _ProfileEditWidgetState extends State<ProfileEditWidget> {
                                             .bodyLarge
                                             .fontStyle,
                                       ),
-<<<<<<< HEAD
                                       color: FlutterFlowTheme.of(context)
                                           .secondaryText,
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                       fontSize: 12.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FlutterFlowTheme.of(context)

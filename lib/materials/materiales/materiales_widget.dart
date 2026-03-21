@@ -1,10 +1,7 @@
 import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
-<<<<<<< HEAD
 import '/flutter_flow/flutter_flow_pdf_viewer.dart';
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -681,7 +678,6 @@ class _MaterialesWidgetState extends State<MaterialesWidget> {
                                                                         MainAxisSize
                                                                             .max,
                                                                     children: [
-<<<<<<< HEAD
                                                                       Container(
                                                                         width: MediaQuery.sizeOf(context).width *
                                                                             0.2,
@@ -696,15 +692,6 @@ class _MaterialesWidgetState extends State<MaterialesWidget> {
                                                                           horizontalScroll:
                                                                               false,
                                                                         ),
-=======
-                                                                      Icon(
-                                                                        Icons
-                                                                            .description_rounded,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .tertiary,
-                                                                        size:
-                                                                            20.0,
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                                                       ),
                                                                       Expanded(
                                                                         child:
@@ -716,14 +703,10 @@ class _MaterialesWidgetState extends State<MaterialesWidget> {
                                                                           children:
                                                                               [
                                                                             Text(
-<<<<<<< HEAD
                                                                               valueOrDefault<String>(
                                                                                 columnCoursesRecord.autorName,
                                                                                 'a',
                                                                               ),
-=======
-                                                                              'Lecture Notes - Week 5',
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                                                               style: FlutterFlowTheme.of(context).bodyMedium.override(
                                                                                     font: GoogleFonts.inter(
                                                                                       fontWeight: FontWeight.w600,
@@ -735,14 +718,10 @@ class _MaterialesWidgetState extends State<MaterialesWidget> {
                                                                                   ),
                                                                             ),
                                                                             Text(
-<<<<<<< HEAD
                                                                               valueOrDefault<String>(
                                                                                 dateTimeFormat("yMMMd", columnCoursesRecord.ageDocument),
                                                                                 '1',
                                                                               ),
-=======
-                                                                              '2.4 MB',
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                                                               style: FlutterFlowTheme.of(context).labelSmall.override(
                                                                                     font: GoogleFonts.inter(
                                                                                       fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
@@ -798,98 +777,6 @@ class _MaterialesWidgetState extends State<MaterialesWidget> {
                                                                     .alternate,
                                                               ),
                                                             ),
-<<<<<<< HEAD
-=======
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                Expanded(
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons
-                                                                            .video_collection_rounded,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .secondary,
-                                                                        size:
-                                                                            20.0,
-                                                                      ),
-                                                                      Expanded(
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.min,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.start,
-                                                                          children:
-                                                                              [
-                                                                            Text(
-                                                                              'Tutorial Video - Firebase Setup',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.inter(
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                    ),
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                  ),
-                                                                            ),
-                                                                            Text(
-                                                                              '45.2 MB',
-                                                                              style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                    font: GoogleFonts.inter(
-                                                                                      fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                                                                                    ),
-                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
-                                                                                    fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                                                                                  ),
-                                                                            ),
-                                                                          ].divide(SizedBox(height: 2.0)),
-                                                                        ),
-                                                                      ),
-                                                                    ].divide(SizedBox(
-                                                                        width:
-                                                                            12.0)),
-                                                                  ),
-                                                                ),
-                                                                FlutterFlowIconButton(
-                                                                  borderColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  borderRadius:
-                                                                      16.0,
-                                                                  buttonSize:
-                                                                      32.0,
-                                                                  icon: Icon(
-                                                                    Icons
-                                                                        .download_rounded,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    size: 18.0,
-                                                                  ),
-                                                                  onPressed:
-                                                                      () {
-                                                                    print(
-                                                                        'IconButton pressed ...');
-                                                                  },
-                                                                ),
-                                                              ].divide(SizedBox(
-                                                                  width: 12.0)),
-                                                            ),
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                                             Container(
                                                               width: double
                                                                   .infinity,
@@ -901,98 +788,6 @@ class _MaterialesWidgetState extends State<MaterialesWidget> {
                                                                     .alternate,
                                                               ),
                                                             ),
-<<<<<<< HEAD
-=======
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              mainAxisAlignment:
-                                                                  MainAxisAlignment
-                                                                      .spaceBetween,
-                                                              children: [
-                                                                Expanded(
-                                                                  child: Row(
-                                                                    mainAxisSize:
-                                                                        MainAxisSize
-                                                                            .max,
-                                                                    children: [
-                                                                      Icon(
-                                                                        Icons
-                                                                            .code_rounded,
-                                                                        color: FlutterFlowTheme.of(context)
-                                                                            .warning,
-                                                                        size:
-                                                                            20.0,
-                                                                      ),
-                                                                      Expanded(
-                                                                        child:
-                                                                            Column(
-                                                                          mainAxisSize:
-                                                                              MainAxisSize.min,
-                                                                          crossAxisAlignment:
-                                                                              CrossAxisAlignment.start,
-                                                                          children:
-                                                                              [
-                                                                            Text(
-                                                                              'Assignment Template',
-                                                                              style: FlutterFlowTheme.of(context).bodyMedium.override(
-                                                                                    font: GoogleFonts.inter(
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                    ),
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FontWeight.w600,
-                                                                                    fontStyle: FlutterFlowTheme.of(context).bodyMedium.fontStyle,
-                                                                                  ),
-                                                                            ),
-                                                                            Text(
-                                                                              '156 KB',
-                                                                              style: FlutterFlowTheme.of(context).labelSmall.override(
-                                                                                    font: GoogleFonts.inter(
-                                                                                      fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
-                                                                                      fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                                                                                    ),
-                                                                                    color: FlutterFlowTheme.of(context).secondaryText,
-                                                                                    letterSpacing: 0.0,
-                                                                                    fontWeight: FlutterFlowTheme.of(context).labelSmall.fontWeight,
-                                                                                    fontStyle: FlutterFlowTheme.of(context).labelSmall.fontStyle,
-                                                                                  ),
-                                                                            ),
-                                                                          ].divide(SizedBox(height: 2.0)),
-                                                                        ),
-                                                                      ),
-                                                                    ].divide(SizedBox(
-                                                                        width:
-                                                                            12.0)),
-                                                                  ),
-                                                                ),
-                                                                FlutterFlowIconButton(
-                                                                  borderColor:
-                                                                      Colors
-                                                                          .transparent,
-                                                                  borderRadius:
-                                                                      16.0,
-                                                                  buttonSize:
-                                                                      32.0,
-                                                                  icon: Icon(
-                                                                    Icons
-                                                                        .download_rounded,
-                                                                    color: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .primary,
-                                                                    size: 18.0,
-                                                                  ),
-                                                                  onPressed:
-                                                                      () {
-                                                                    print(
-                                                                        'IconButton pressed ...');
-                                                                  },
-                                                                ),
-                                                              ].divide(SizedBox(
-                                                                  width: 12.0)),
-                                                            ),
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                                           ].divide(SizedBox(
                                                               height: 8.0)),
                                                         ),

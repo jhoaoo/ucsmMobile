@@ -10,10 +10,7 @@ import 'user_events_widget.dart' show UserEventsWidget;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -24,11 +21,8 @@ class UserEventsModel extends FlutterFlowModel<UserEventsWidget> {
 
   bool isActive = false;
 
-<<<<<<< HEAD
   bool expandE = false;
 
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
   ///  State fields for stateful widgets in this page.
 
   // Stores action output result for [Firestore Query - Query a collection] action in Row widget.

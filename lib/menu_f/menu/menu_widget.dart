@@ -1,22 +1,13 @@
-<<<<<<< HEAD
-=======
-import '/auth/firebase_auth/auth_util.dart';
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'dart:ui';
-<<<<<<< HEAD
 import '/index.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:material_palette/material_palette.dart';
-=======
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 import 'package:provider/provider.dart';
 import 'menu_model.dart';
 export 'menu_model.dart';
@@ -65,7 +56,6 @@ class _MenuWidgetState extends State<MenuWidget> {
           top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
-<<<<<<< HEAD
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
@@ -136,45 +126,20 @@ class _MenuWidgetState extends State<MenuWidget> {
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
-=======
-            children: [
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    mainAxisSize: MainAxisSize.max,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AuthUserStreamWidget(
-                        builder: (context) => Text(
-                          'Buen dia, ${valueOrDefault<String>(
-                            valueOrDefault(currentUserDocument?.nickName, ''),
-                            'Jhoaoo',
-                          )}',
-                          style:
-                              FlutterFlowTheme.of(context).bodyMedium.override(
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                     font: GoogleFonts.inter(
                                       fontWeight: FontWeight.w600,
                                       fontStyle: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .fontStyle,
                                     ),
-<<<<<<< HEAD
                                     color: Colors.white,
                                     fontSize: 14.0,
-=======
-                                    fontSize: 20.0,
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.w600,
                                     fontStyle: FlutterFlowTheme.of(context)
                                         .bodyMedium
                                         .fontStyle,
                                   ),
-<<<<<<< HEAD
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -196,51 +161,24 @@ class _MenuWidgetState extends State<MenuWidget> {
                       children: [
                         Text(
                           'Restaurantes',
-=======
-                        ),
-                      ),
-                      AuthUserStreamWidget(
-                        builder: (context) => Text(
-                          'Semestre ${valueOrDefault<String>(
-                            valueOrDefault(currentUserDocument?.semester, 0)
-                                .toString(),
-                            '3',
-                          )}-2026',
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                           style: FlutterFlowTheme.of(context)
                               .bodyMedium
                               .override(
                                 font: GoogleFonts.inter(
-<<<<<<< HEAD
                                   fontWeight: FontWeight.w600,
-=======
-                                  fontWeight: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .fontWeight,
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                   fontStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .fontStyle,
                                 ),
-<<<<<<< HEAD
                                 color: FlutterFlowTheme.of(context).primaryText,
                                 fontSize: 20.0,
                                 letterSpacing: 0.0,
                                 fontWeight: FontWeight.w600,
-=======
-                                color:
-                                    FlutterFlowTheme.of(context).secondaryText,
-                                letterSpacing: 0.0,
-                                fontWeight: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .fontWeight,
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                 fontStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .fontStyle,
                               ),
                         ),
-<<<<<<< HEAD
                         Padding(
                           padding: EdgeInsets.all(8.0),
                           child: InkWell(
@@ -526,51 +464,12 @@ class _MenuWidgetState extends State<MenuWidget> {
                                                 .secondary,
                                             fontSize: 12.0,
                                             letterSpacing: 0.0,
-=======
-                      ),
-                    ].divide(SizedBox(height: 3.0)),
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 8.0, 0.0),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
-                    borderRadius: BorderRadius.circular(16.0),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Expanded(
-                            child: Container(
-                              decoration: BoxDecoration(),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.max,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Comedor central',
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.inter(
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
                                             fontWeight: FontWeight.w500,
                                             fontStyle:
                                                 FlutterFlowTheme.of(context)
                                                     .bodyMedium
                                                     .fontStyle,
                                           ),
-<<<<<<< HEAD
                                     ),
                                   ].divide(SizedBox(height: 2.0)),
                                 ),
@@ -584,98 +483,6 @@ class _MenuWidgetState extends State<MenuWidget> {
                 ),
               ),
             ].divide(SizedBox(height: 8.0)),
-=======
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          fontSize: 13.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                  Text(
-                                    'Menú del día',
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          font: GoogleFonts.inter(
-                                            fontWeight:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontWeight,
-                                            fontStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodyMedium
-                                                    .fontStyle,
-                                          ),
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          fontSize: 12.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontWeight,
-                                          fontStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .fontStyle,
-                                        ),
-                                  ),
-                                  Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      Text(
-                                        '11:30 - 3:00 PM',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              font: GoogleFonts.inter(
-                                                fontWeight:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontWeight,
-                                                fontStyle:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .fontStyle,
-                                              ),
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .secondaryText,
-                                              fontSize: 10.0,
-                                              letterSpacing: 0.0,
-                                              fontWeight:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontWeight,
-                                              fontStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .fontStyle,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ]
-                            .divide(SizedBox(width: 8.0))
-                            .around(SizedBox(width: 8.0)),
-                      ),
-                    ]
-                        .addToStart(SizedBox(height: 8.0))
-                        .addToEnd(SizedBox(height: 8.0)),
-                  ),
-                ),
-              ),
-            ].divide(SizedBox(height: 8.0)).around(SizedBox(height: 8.0)),
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
           ),
         ),
       ),

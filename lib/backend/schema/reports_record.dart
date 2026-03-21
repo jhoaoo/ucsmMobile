@@ -21,7 +21,6 @@ class ReportsRecord extends FirestoreRecord {
   String get categoryReport => _categoryReport ?? '';
   bool hasCategoryReport() => _categoryReport != null;
 
-<<<<<<< HEAD
   // "problemDescription" field.
   String? _problemDescription;
   String get problemDescription => _problemDescription ?? '';
@@ -30,10 +29,6 @@ class ReportsRecord extends FirestoreRecord {
   void _initializeFields() {
     _categoryReport = snapshotData['categoryReport'] as String?;
     _problemDescription = snapshotData['problemDescription'] as String?;
-=======
-  void _initializeFields() {
-    _categoryReport = snapshotData['categoryReport'] as String?;
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
   }
 
   static CollectionReference get collection =>
@@ -72,18 +67,12 @@ class ReportsRecord extends FirestoreRecord {
 
 Map<String, dynamic> createReportsRecordData({
   String? categoryReport,
-<<<<<<< HEAD
   String? problemDescription,
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'categoryReport': categoryReport,
-<<<<<<< HEAD
       'problemDescription': problemDescription,
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
     }.withoutNulls,
   );
 
@@ -95,7 +84,6 @@ class ReportsRecordDocumentEquality implements Equality<ReportsRecord> {
 
   @override
   bool equals(ReportsRecord? e1, ReportsRecord? e2) {
-<<<<<<< HEAD
     return e1?.categoryReport == e2?.categoryReport &&
         e1?.problemDescription == e2?.problemDescription;
   }
@@ -103,13 +91,6 @@ class ReportsRecordDocumentEquality implements Equality<ReportsRecord> {
   @override
   int hash(ReportsRecord? e) =>
       const ListEquality().hash([e?.categoryReport, e?.problemDescription]);
-=======
-    return e1?.categoryReport == e2?.categoryReport;
-  }
-
-  @override
-  int hash(ReportsRecord? e) => const ListEquality().hash([e?.categoryReport]);
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
 
   @override
   bool isValidKey(Object? o) => o is ReportsRecord;

@@ -169,7 +169,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: ConfigurationWidget.routeName,
           path: ConfigurationWidget.routePath,
           builder: (context, params) => ConfigurationWidget(),
-<<<<<<< HEAD
         ),
         FFRoute(
           name: CardRestaurantWidget.routeName,
@@ -190,8 +189,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: HomeTestWidget.routeName,
           path: HomeTestWidget.routePath,
           builder: (context, params) => HomeTestWidget(),
-=======
->>>>>>> 752c6c6ded0384ff5f337032ce4ffec8bb2543d5
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
